@@ -36,6 +36,11 @@ nav a {
   color: white;
   text-decoration: none;
   font-size: 14px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00ff88;
 }
 
 /* HERO */
@@ -43,7 +48,7 @@ nav a {
 header {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('hero.png');
+  url('https://images.unsplash.com/photo-1599058917212-d750089bc07e');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -70,6 +75,11 @@ header p {
   border-radius: 25px;
   text-decoration: none;
   display: inline-block;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 /* SEKCJE */
@@ -79,23 +89,59 @@ section {
   text-align: center;
 }
 
+/* ANIMACJA */
+
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.7s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* GALERIA */
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  gap: 20px;
   padding: 40px;
 }
 
 .gallery img {
   width: 100%;
+  height: 250px;
+  object-fit: cover;
   border-radius: 10px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .gallery img:hover {
   transform: scale(1.05);
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
 }
 
 /* CENNIK */
@@ -132,20 +178,33 @@ section {
 <header>
   <div>
     <h1>Paintball Żory</h1>
-    <p>Adrenalina. Zabawa. Emocje.</p>
-    <a href="#kontakt" class="btn">Umów się</a>
+    <p>Adrenalina. Rywalizacja. Zabawa.</p>
+    <a href="#kontakt" class="btn">Zarezerwuj</a>
   </div>
 </header>
 
-<section id="onas">
+<section class="fade" id="onas">
   <h2>O nas</h2>
+
   <p>
-  Organizujemy profesjonalne rozgrywki paintballowe oraz gel blaster w Żorach.  
-  Nasze pole oferuje różnorodne przeszkody, dynamiczną rozgrywkę i świetną zabawę dla grup znajomych, firm oraz klientów indywidualnych.  
+  Paintball Żory to miejsce stworzone dla osób szukających adrenaliny i emocji.
+  Organizujemy rozgrywki dla grup znajomych, firm oraz klientów indywidualnych.
+  </p>
+
+  <p>
+  Nasze pole oferuje dynamiczne scenariusze, różnorodne przeszkody oraz profesjonalny sprzęt,
+  dzięki czemu każda gra to niezapomniane doświadczenie.
+  </p>
+
+  <p>
+  Oferujemy:
+  <br>• Paintball klasyczny  
+  <br>• Paintball .50 cal  
+  <br>• Gel Blaster  
   </p>
 </section>
 
-<section id="cennik">
+<section class="fade" id="cennik">
   <h2>Cennik</h2>
 
   <div class="price">
@@ -157,7 +216,7 @@ section {
 
 </section>
 
-<section id="galeria">
+<section class="fade" id="galeria">
   <h2>Galeria</h2>
 
   <div class="gallery">
@@ -168,7 +227,7 @@ section {
 
 </section>
 
-<section id="kontakt" class="contact">
+<section class="fade" id="kontakt" class="contact">
   <h2>Kontakt</h2>
 
   <p>📞 669 970 180</p>
@@ -176,6 +235,46 @@ section {
   <p>Paintball • Gel Blaster • .50cal</p>
 
 </section>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+  <img src="" id="lightbox-img">
+</div>
+
+<script>
+
+/* ANIMACJE SCROLL */
+
+const sections = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* LIGHTBOX */
+
+const images = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
+});
+
+lightbox.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+</script>
 
 </body>
 </html>
