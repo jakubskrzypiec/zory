@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paintball Żory</title>
+
+<style>
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* HERO */
+header {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  url('TUTAJ_WSTAW_ZDJECIE_Z_LOTU_PTAKA');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+header h1 { font-size: 60px; }
+
+.btn {
+  margin-top: 20px;
+  padding: 14px 30px;
+  background: white;
+  color: black;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+/* SEKCJE */
+section {
+  padding: 120px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s;
+  scroll-margin-top: 80px;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* GALERIA */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* STOPKA */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #111;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#onas">O NAS</a>
+  <a href="#oferta">OFERTA</a>
+  <a href="#galeria">GALERIA</a>
+  <a href="#kontakt">KONTAKT</a>
+</nav>
+
+<header>
+  <div>
+    <h1>Paintball Żory</h1>
+    <p>Adrenalina. Rywalizacja. Zabawa.</p>
+    <a href="#kontakt" class="btn">Zarezerwuj</a>
+  </div>
+</header>
+
+<section id="onas">
+  <h2>O nas</h2>
+  <p>
+  Oferujemy profesjonalne gry paintball oraz gel blaster w Żorach.
+  Nasze pole zapewnia świetną zabawę dla grup znajomych, firm oraz imprez okolicznościowych.
+  Bezpieczna i dynamiczna rozgrywka gwarantowana!
+  </p>
+</section>
+
+<section id="oferta">
+  <h2>Oferta</h2>
+  <p>🔫 Paintball klasyczny (.50 cal)</p>
+  <p>💥 Gel Blaster</p>
+  <p>🎉 Imprezy firmowe i urodziny</p>
+</section>
+
+<section id="galeria">
+  <h2>Galeria</h2>
+  <div class="gallery">
+
+    <img src="TU_WSTAW_1">
+    <img src="TU_WSTAW_2">
+    <img src="TU_WSTAW_3">
+    <img src="TU_WSTAW_4">
+
+  </div>
+</section>
+
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <p>📍 ul. Kolejowa 43, Żory</p>
+  <p>📞 669 970 180</p>
+</section>
+
+<footer>
+  © 2026 Paintball Żory
+</footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      section.classList.add("show");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
