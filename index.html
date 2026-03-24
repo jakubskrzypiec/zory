@@ -7,7 +7,9 @@
 
 <style>
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -17,6 +19,7 @@ body {
 }
 
 /* NAV */
+
 nav {
   position: fixed;
   width: 100%;
@@ -32,14 +35,15 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 /* HERO */
+
 header {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('image.png');
+  url('hero.png');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -48,56 +52,69 @@ header {
   text-align: center;
 }
 
-header h1 { font-size: 60px; }
+header h1 {
+  font-size: 60px;
+  margin: 0;
+}
+
+header p {
+  margin-top: 10px;
+  opacity: 0.8;
+}
 
 .btn {
   margin-top: 20px;
-  padding: 14px 30px;
+  padding: 12px 25px;
   background: white;
   color: black;
-  border-radius: 30px;
+  border-radius: 25px;
   text-decoration: none;
+  display: inline-block;
 }
 
 /* SEKCJE */
-section {
-  padding: 120px 20px;
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 0.8s;
-  scroll-margin-top: 80px;
-}
 
-section.show {
-  opacity: 1;
-  transform: translateY(0);
+section {
+  padding: 100px 20px;
+  text-align: center;
 }
 
 /* GALERIA */
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 40px;
 }
 
 .gallery img {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
-  transition: 0.4s;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
 .gallery img:hover {
   transform: scale(1.05);
 }
 
-/* STOPKA */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #111;
+/* CENNIK */
+
+.price {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+.price p {
+  border-bottom: 1px solid #333;
+  padding: 10px 0;
+}
+
+/* KONTAKT */
+
+.contact p {
+  margin: 10px 0;
 }
 
 </style>
@@ -107,7 +124,7 @@ footer {
 
 <nav>
   <a href="#onas">O NAS</a>
-  <a href="#oferta">OFERTA</a>
+  <a href="#cennik">CENNIK</a>
   <a href="#galeria">GALERIA</a>
   <a href="#kontakt">KONTAKT</a>
 </nav>
@@ -115,57 +132,50 @@ footer {
 <header>
   <div>
     <h1>Paintball Żory</h1>
-    <p>Adrenalina. Rywalizacja. Zabawa.</p>
-    <a href="#kontakt" class="btn">Zarezerwuj</a>
+    <p>Adrenalina. Zabawa. Emocje.</p>
+    <a href="#kontakt" class="btn">Umów się</a>
   </div>
 </header>
 
 <section id="onas">
   <h2>O nas</h2>
   <p>
-  Oferujemy profesjonalne gry paintball oraz gel blaster w Żorach.
-  Świetna zabawa dla znajomych, firm i imprez.
+  Organizujemy profesjonalne rozgrywki paintballowe oraz gel blaster w Żorach.  
+  Nasze pole oferuje różnorodne przeszkody, dynamiczną rozgrywkę i świetną zabawę dla grup znajomych, firm oraz klientów indywidualnych.  
   </p>
 </section>
 
-<section id="oferta">
-  <h2>Oferta</h2>
-  <p>🔫 Paintball (.50 cal)</p>
-  <p>💥 Gel Blaster</p>
-  <p>🎉 Imprezy i eventy</p>
+<section id="cennik">
+  <h2>Cennik</h2>
+
+  <div class="price">
+    <p>Paintball – pakiet podstawowy</p>
+    <p>Paintball – pakiet rozszerzony</p>
+    <p>Paintball .50cal</p>
+    <p>Gel Blaster</p>
+  </div>
+
 </section>
 
 <section id="galeria">
   <h2>Galeria</h2>
+
   <div class="gallery">
-    <img src="image.png">
-    <img src="image.png">
-    <img src="image.png">
+    <img src="image1.png">
+    <img src="image2.png">
+    <img src="image3.png">
   </div>
+
 </section>
 
-<section id="kontakt">
+<section id="kontakt" class="contact">
   <h2>Kontakt</h2>
-  <p>📍 ul. Kolejowa 43, Żory</p>
+
   <p>📞 669 970 180</p>
+  <p>📍 ul. Kolejowa 43, Żory</p>
+  <p>Paintball • Gel Blaster • .50cal</p>
+
 </section>
-
-<footer>
-  © 2026 Paintball Żory
-</footer>
-
-<script>
-const sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll", () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      section.classList.add("show");
-    }
-  });
-});
-</script>
 
 </body>
 </html>
