@@ -12,9 +12,20 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #0a0a0a, #1a1a1a, #0a0a0a);
+  background: linear-gradient(180deg, #0a0a0a, #1c1c1c, #0a0a0a);
   color: #eee;
 }
+
+/* FACEBOOK */
+
+.fb {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 2000;
+}
+
+.fb img { width: 30px; }
 
 /* NAV */
 
@@ -22,52 +33,36 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.9);
   display: flex;
   justify-content: center;
   gap: 40px;
   padding: 20px;
-  z-index: 9999;
+  z-index: 1000;
 }
 
 nav a {
   color: #ccc;
   text-decoration: none;
-  font-weight: bold;
 }
 
 nav a:hover { color: #4CAF50; }
 
-/* HERO VIDEO */
+/* HERO */
 
 header {
-  position: relative;
   height: 100vh;
-  overflow: hidden;
-}
-
-header video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  url('background.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  top: 40%;
 }
 
-.hero-content h1 { font-size: 60px; }
+header h1 { font-size: 60px; }
 
 .btn {
   margin-top: 20px;
@@ -78,28 +73,27 @@ header video {
   text-decoration: none;
 }
 
-/* CTA BUTTON */
-
-.cta {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #4CAF50;
-  padding: 15px 25px;
-  border-radius: 30px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* SECTIONS */
+/* SEKCJE */
 
 section {
   padding: 100px 20px;
   text-align: center;
 }
 
-/* ABOUT */
+/* ANIMACJA */
+
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* O NAS */
 
 .about {
   max-width: 900px;
@@ -120,34 +114,29 @@ section {
   border-radius: 10px;
 }
 
-/* STATS */
+/* STATY */
 
 .stats {
   display: flex;
   justify-content: center;
   gap: 40px;
-  color: #4CAF50;
-  font-size: 30px;
   margin-top: 30px;
+  color: #4CAF50;
+  font-size: 28px;
 }
 
-/* OFERTY */
+/* FEATURES */
 
-.offers {
+.features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
   gap: 20px;
 }
 
-.offer {
+.feature {
   background: #1a1a1a;
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
-  transition: 0.3s;
-}
-
-.offer:hover {
-  transform: scale(1.05);
 }
 
 /* CENNIK */
@@ -159,6 +148,11 @@ section {
 }
 
 .price h3 { color: #4CAF50; }
+
+.price p {
+  border-bottom: 1px solid #333;
+  padding: 8px 0;
+}
 
 /* GALERIA */
 
@@ -180,8 +174,8 @@ section {
 .review {
   background: #1a1a1a;
   padding: 20px;
-  margin: 10px;
   border-radius: 10px;
+  margin: 10px;
 }
 
 /* FORM */
@@ -218,33 +212,35 @@ iframe {
 
 <body>
 
-<a class="cta" href="#kontakt">ZAREZERWUJ</a>
+<a class="fb" href="https://www.facebook.com/PaintballBorowka" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+</a>
 
 <nav>
 <a href="#onas">O NAS</a>
-<a href="#oferty">OFERTA</a>
 <a href="#cennik">CENNIK</a>
 <a href="#galeria">GALERIA</a>
 <a href="#kontakt">KONTAKT</a>
 </nav>
 
 <header>
-<video autoplay muted loop>
-<source src="https://cdn.coverr.co/videos/coverr-paintball-action-9714/1080p.mp4" type="video/mp4">
-</video>
-<div class="overlay"></div>
-
-<div class="hero-content">
+<div>
 <h1>Paintball Żory</h1>
 <p>Adrenalina • Rywalizacja • Emocje</p>
 <a href="#kontakt" class="btn">Zarezerwuj</a>
 </div>
 </header>
 
-<section id="onas" class="about">
+<section id="onas" class="fade about">
 <h2>O nas</h2>
 
-<p>Jesteśmy pasjonatami paintballa sportowego...</p>
+<p>Jesteśmy pasjonatami paintballa sportowego, którzy od lat rozwijają swoje umiejętności i zdobywają doświadczenie zarówno na arenie krajowej, jak i międzynarodowej.</p>
+
+<p>Nasza drużyna bierze udział w najwyższych ligach w Europie oraz w Polsce, co pozwala nam przenosić profesjonalne doświadczenie na organizowane przez nas rozgrywki.</p>
+
+<p>Jeden z naszych instruktorów zdobył 2 miejsce U19 we Francji reprezentując Polskę.</p>
+
+<p>Organizujemy gry dla grup znajomych, firm oraz klientów indywidualnych. Gwarantujemy emocje, bezpieczeństwo i klimat prawdziwego paintballa.</p>
 
 <div class="team">
 <img src="team1.png">
@@ -259,19 +255,17 @@ iframe {
 
 </section>
 
-<section id="oferty">
-<h2>Oferta</h2>
-
-<div class="offers">
-<div class="offer">🎉 Wieczory kawalerskie</div>
-<div class="offer">🏢 Imprezy firmowe</div>
-<div class="offer">🎂 Urodziny</div>
-<div class="offer">🔥 Eventy specjalne</div>
+<section class="fade">
+<h2>Dlaczego my?</h2>
+<div class="features">
+<div class="feature">🔥 Profesjonalna drużyna</div>
+<div class="feature">🎯 Najlepsze scenariusze</div>
+<div class="feature">🛡️ Bezpieczeństwo</div>
+<div class="feature">⚡ Mega klimat</div>
 </div>
-
 </section>
 
-<section id="cennik">
+<section id="cennik" class="fade">
 <h2>Cennik</h2>
 
 <div class="price">
@@ -293,7 +287,7 @@ iframe {
 
 </section>
 
-<section id="galeria">
+<section id="galeria" class="fade">
 <h2>Galeria</h2>
 
 <div class="gallery">
@@ -304,16 +298,17 @@ iframe {
 
 </section>
 
-<section>
+<section class="fade">
 <h2>Opinie</h2>
 
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Mega klimat</div>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball</div>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Polecam każdemu</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Mega klimat!</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball w Żorach</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Świetna zabawa</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Na pewno wrócimy</div>
 
 </section>
 
-<section id="kontakt">
+<section id="kontakt" class="fade">
 <h2>Rezerwacja</h2>
 
 <form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
@@ -327,6 +322,20 @@ iframe {
 <iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&t=&z=15&output=embed"></iframe>
 
 </section>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+});
+
+faders.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
