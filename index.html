@@ -7,15 +7,13 @@
 
 <style>
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
+  background: #111;
+  color: #eee;
 }
 
 /* NAV */
@@ -24,7 +22,7 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(20,20,20,0.95);
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -33,14 +31,12 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: #ccc;
   text-decoration: none;
-  font-size: 14px;
-  transition: 0.3s;
 }
 
 nav a:hover {
-  color: #00ff88;
+  color: #4CAF50;
 }
 
 /* HERO */
@@ -48,7 +44,7 @@ nav a:hover {
 header {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
- url('https://images.unsplash.com/photo-1603575448364-98c6c4f8d7c8')
+  url('https://images.unsplash.com/photo-1598514982686-8c3f3b6b2e9c');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -57,29 +53,15 @@ header {
   text-align: center;
 }
 
-header h1 {
-  font-size: 60px;
-  margin: 0;
-}
-
-header p {
-  margin-top: 10px;
-  opacity: 0.8;
-}
+header h1 { font-size: 60px; }
 
 .btn {
   margin-top: 20px;
   padding: 12px 25px;
-  background: white;
-  color: black;
+  background: #4CAF50;
+  color: white;
   border-radius: 25px;
   text-decoration: none;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.05);
 }
 
 /* SEKCJE */
@@ -89,26 +71,31 @@ section {
   text-align: center;
 }
 
-/* ANIMACJA */
+/* O NAS */
 
-.fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.7s;
+.about {
+  max-width: 900px;
+  margin: auto;
 }
 
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.team img {
+  width: 100%;
+  border-radius: 10px;
 }
 
 /* GALERIA */
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
   gap: 20px;
-  padding: 40px;
 }
 
 .gallery img {
@@ -116,32 +103,6 @@ section {
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-/* LIGHTBOX */
-
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
 }
 
 /* CENNIK */
@@ -152,15 +113,54 @@ section {
   text-align: left;
 }
 
+.price h3 { color: #4CAF50; }
+
 .price p {
   border-bottom: 1px solid #333;
-  padding: 10px 0;
+  padding: 8px 0;
 }
 
-/* KONTAKT */
+/* FORMULARZ */
 
-.contact p {
-  margin: 10px 0;
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* MAPA */
+
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  margin-top: 30px;
+}
+
+/* SOCIAL */
+
+.social a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #4CAF50;
+  text-decoration: none;
 }
 
 </style>
@@ -178,45 +178,54 @@ section {
 <header>
   <div>
     <h1>Paintball Żory</h1>
-    <p>Adrenalina. Rywalizacja. Zabawa.</p>
+    <p>Adrenalina • Rywalizacja • Emocje</p>
     <a href="#kontakt" class="btn">Zarezerwuj</a>
   </div>
 </header>
 
-<section class="fade" id="onas">
+<section id="onas" class="about">
   <h2>O nas</h2>
 
   <p>
-  Paintball Żory to miejsce stworzone dla osób szukających adrenaliny i emocji.
-  Organizujemy rozgrywki dla grup znajomych, firm oraz klientów indywidualnych.
+  Jesteśmy pasjonatami paintballa sportowego, posiadamy własną drużynę
+  grającą w najwyższych ligach w Europie oraz w Polsce.
   </p>
 
   <p>
-  Nasze pole oferuje dynamiczne scenariusze, różnorodne przeszkody oraz profesjonalny sprzęt,
-  dzięki czemu każda gra to niezapomniane doświadczenie.
+  Jeden z naszych instruktorów zdobył 2 miejsce U19 we Francji,
+  reprezentując Polskę.
   </p>
 
-  <p>
-  Oferujemy:
-  <br>• Paintball klasyczny  
-  <br>• Paintball .50 cal  
-  <br>• Gel Blaster  
-  </p>
+  <div class="team">
+    <img src="team1.png">
+    <img src="team2.png">
+  </div>
 </section>
 
-<section class="fade" id="cennik">
+<section id="cennik">
   <h2>Cennik</h2>
 
   <div class="price">
-    <p>Paintball – pakiet podstawowy</p>
-    <p>Paintball – pakiet rozszerzony</p>
-    <p>Paintball .50cal</p>
-    <p>Gel Blaster</p>
-  </div>
 
+    <h3>Paintball</h3>
+    <p>100 zł – 500 kulek</p>
+    <p>35 zł – 100 kulek</p>
+
+    <h3>.50 CAL Paintball</h3>
+    <p>70 zł – 500 kulek</p>
+    <p>35 zł – 100 kulek</p>
+
+    <h3>Gel Blaster</h3>
+    <p>50 zł / osoba – 1 godzina</p>
+    <p>30 zł / osoba – 30 minut</p>
+
+    <h3>Dodatkowo</h3>
+    <p>Ognisko – 150 zł</p>
+
+  </div>
 </section>
 
-<section class="fade" id="galeria">
+<section id="galeria">
   <h2>Galeria</h2>
 
   <div class="gallery">
@@ -224,57 +233,32 @@ section {
     <img src="image2.png">
     <img src="image3.png">
   </div>
-
 </section>
 
-<section class="fade" id="kontakt" class="contact">
-  <h2>Kontakt</h2>
+<section id="kontakt">
+  <h2>Kontakt / Rezerwacja</h2>
 
   <p>📞 669 970 180</p>
   <p>📍 ul. Kolejowa 43, Żory</p>
-  <p>Paintball • Gel Blaster • .50cal</p>
+
+  <!-- FORMULARZ -->
+  <form>
+    <input type="text" placeholder="Imię" required>
+    <input type="tel" placeholder="Telefon" required>
+    <textarea placeholder="Wiadomość / termin"></textarea>
+    <button type="submit">Wyślij</button>
+  </form>
+
+  <!-- MAPA -->
+  <iframe src="https://maps.google.com/maps?q=Żory%20kolejowa%2043&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+  <div class="social">
+    <a href="https://www.facebook.com/PaintballBorowka" target="_blank">
+      👉 Facebook
+    </a>
+  </div>
 
 </section>
-
-<!-- LIGHTBOX -->
-
-<div class="lightbox" id="lightbox">
-  <img src="" id="lightbox-img">
-</div>
-
-<script>
-
-/* ANIMACJE SCROLL */
-
-const sections = document.querySelectorAll(".fade");
-
-window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      sec.classList.add("show");
-    }
-  });
-});
-
-/* LIGHTBOX */
-
-const images = document.querySelectorAll(".gallery img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-
-images.forEach(img => {
-  img.addEventListener("click", () => {
-    lightbox.style.display = "flex";
-    lightboxImg.src = img.src;
-  });
-});
-
-lightbox.addEventListener("click", () => {
-  lightbox.style.display = "none";
-});
-
-</script>
 
 </body>
 </html>
