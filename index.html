@@ -12,8 +12,21 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #111;
+  background: linear-gradient(180deg, #0f0f0f, #1a1a1a, #0f0f0f);
   color: #eee;
+}
+
+/* FACEBOOK ICON */
+
+.fb {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+}
+
+.fb img {
+  width: 35px;
 }
 
 /* NAV */
@@ -22,12 +35,11 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(20,20,20,0.95);
+  background: rgba(20,20,20,0.9);
   display: flex;
   justify-content: center;
   gap: 40px;
   padding: 20px;
-  z-index: 1000;
 }
 
 nav a {
@@ -53,7 +65,9 @@ header {
   text-align: center;
 }
 
-header h1 { font-size: 60px; }
+header h1 {
+  font-size: 60px;
+}
 
 .btn {
   margin-top: 20px;
@@ -69,6 +83,19 @@ header h1 { font-size: 60px; }
 section {
   padding: 100px 20px;
   text-align: center;
+}
+
+/* ANIMACJE */
+
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.7s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* O NAS */
@@ -89,6 +116,22 @@ section {
   width: 100%;
   height: 300px;
   object-fit: cover;
+  border-radius: 10px;
+}
+
+/* DLACZEGO MY */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.feature {
+  background: #1f1f1f;
+  padding: 20px;
   border-radius: 10px;
 }
 
@@ -122,21 +165,6 @@ section {
   padding: 8px 0;
 }
 
-/* KONTAKT */
-
-.contact p {
-  margin: 10px 0;
-}
-
-/* SOCIAL */
-
-.social a {
-  display: inline-block;
-  margin-top: 15px;
-  color: #4CAF50;
-  text-decoration: none;
-}
-
 /* MAPA */
 
 iframe {
@@ -150,6 +178,12 @@ iframe {
 </head>
 
 <body>
+
+<!-- FACEBOOK -->
+
+<a class="fb" href="https://www.facebook.com/PaintballBorowka" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+</a>
 
 <nav>
   <a href="#onas">O NAS</a>
@@ -166,62 +200,50 @@ iframe {
   </div>
 </header>
 
-<section id="onas" class="about">
+<section id="onas" class="about fade">
   <h2>O nas</h2>
 
-  <p>
-  Jesteśmy pasjonatami paintballa sportowego, którzy od lat rozwijają swoje umiejętności i zdobywają doświadczenie zarówno na arenie krajowej, jak i międzynarodowej.
-  Tworzymy zgrany zespół, który nie tylko organizuje rozgrywki, ale sam aktywnie bierze udział w profesjonalnych zawodach.
-  </p>
-
-  <p>
-  Nasza drużyna regularnie występuje w najwyższych ligach w Europie oraz w Polsce, co pozwala nam przenosić prawdziwe doświadczenie sportowe na organizowane przez nas gry.
-  Dzięki temu oferujemy coś więcej niż zwykłą zabawę – zapewniamy emocje, rywalizację i klimat prawdziwego paintballa turniejowego.
-  </p>
-
-  <p>
-  Jeden z naszych instruktorów miał okazję reprezentować Polskę na arenie międzynarodowej,
-  gdzie zdobył 2 miejsce w kategorii U19 we Francji.
-  To doświadczenie przekłada się na jakość prowadzonych przez nas rozgrywek oraz podejście do klientów.
-  </p>
-
-  <p>
-  Organizujemy rozgrywki dla grup znajomych, wieczorów kawalerskich, firm oraz klientów indywidualnych.
-  Dbamy o bezpieczeństwo, dobrą atmosferę i przede wszystkim – niezapomniane emocje.
-  </p>
+  <p>Jesteśmy pasjonatami paintballa sportowego...</p>
 
   <div class="team">
     <img src="team1.png">
     <img src="team2.png">
   </div>
-
 </section>
 
-<section id="cennik">
+<section class="fade">
+  <h2>Dlaczego my?</h2>
+
+  <div class="features">
+    <div class="feature">🔥 Profesjonalna drużyna</div>
+    <div class="feature">🎯 Najlepsze scenariusze</div>
+    <div class="feature">🛡️ Bezpieczeństwo</div>
+    <div class="feature">⚡ Mega klimat</div>
+  </div>
+</section>
+
+<section id="cennik" class="fade">
   <h2>Cennik</h2>
 
   <div class="price">
-
     <h3>Paintball</h3>
     <p>100 zł – 500 kulek</p>
     <p>35 zł – 100 kulek</p>
 
-    <h3>.50 CAL Paintball</h3>
+    <h3>.50 CAL</h3>
     <p>70 zł – 500 kulek</p>
     <p>35 zł – 100 kulek</p>
 
     <h3>Gel Blaster</h3>
-    <p>50 zł / osoba – 1 godzina</p>
-    <p>30 zł / osoba – 30 minut</p>
+    <p>50 zł / godzina</p>
+    <p>30 zł / 30 min</p>
 
-    <h3>Dodatkowo</h3>
-    <p>Ognisko – 150 zł</p>
-
+    <h3>Ognisko</h3>
+    <p>150 zł</p>
   </div>
-
 </section>
 
-<section id="galeria">
+<section id="galeria" class="fade">
   <h2>Galeria</h2>
 
   <div class="gallery">
@@ -229,24 +251,29 @@ iframe {
     <img src="image2.png">
     <img src="image3.png">
   </div>
-
 </section>
 
-<section id="kontakt" class="contact">
+<section id="kontakt" class="fade">
   <h2>Kontakt</h2>
 
   <p>📞 669 970 180</p>
   <p>📍 ul. Kolejowa 43, Żory</p>
 
-  <iframe src="https://maps.google.com/maps?q=Żory%20kolejowa%2043&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-
-  <div class="social">
-    <a href="https://www.facebook.com/PaintballBorowka" target="_blank">
-      👉 Facebook
-    </a>
-  </div>
-
+  <iframe src="https://maps.google.com/maps?q=Żory&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </section>
+
+<script>
+const sections = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add("show");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
