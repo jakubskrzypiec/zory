@@ -13,7 +13,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(180deg,#050505 0%,#0d0d0d 30%,#111 60%,#050505 100%);
+  background: linear-gradient(180deg,#050505 0%,#0a0a0a 40%,#111 70%,#050505 100%);
   color: #eee;
 }
 
@@ -23,13 +23,13 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.85);
   display: flex;
   justify-content: center;
   gap: 40px;
   padding: 20px;
   z-index: 9999;
-  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
 }
 
 nav a {
@@ -59,7 +59,7 @@ nav a:hover {
 
 header {
   height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
   url('background.png');
   background-size: cover;
   background-position: center;
@@ -72,7 +72,6 @@ header {
 header h1 {
   font-size: 60px;
   margin: 0;
-  letter-spacing: 2px;
 }
 
 header p {
@@ -97,26 +96,27 @@ header p {
   box-shadow: 0 0 15px rgba(76,175,80,0.6);
 }
 
-/* SEKCJE */
+/* SEKCJE — PRZEZROCZYSTE (NAPRAWA GRADIENTU) */
 
 section {
-  padding: 100px 20px;
+  padding: 120px 20px;
   text-align: center;
   border-top: 1px solid rgba(255,255,255,0.05);
-  background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.2));
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
 }
 
 /* ANIMACJA */
 
 .fade {
   opacity: 0;
-  transform: translateY(40px) scale(0.98);
+  transform: translateY(40px);
   transition: 0.8s ease;
 }
 
 .fade.show {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 /* O NAS */
@@ -124,7 +124,22 @@ section {
 .about {
   max-width: 900px;
   margin: auto;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
+
+.about h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.about p {
+  color: #ddd;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+/* TEAM */
 
 .team {
   display: grid;
@@ -137,9 +152,9 @@ section {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   transition: 0.4s;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
 .team img:hover {
@@ -157,7 +172,7 @@ section {
 }
 
 .stats div {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.05);
   padding: 20px 30px;
   border-radius: 12px;
   border: 1px solid rgba(76,175,80,0.2);
@@ -187,16 +202,15 @@ section {
 }
 
 .feature {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.05);
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.05);
   transition: 0.3s;
 }
 
 .feature:hover {
   transform: translateY(-5px);
-  border-color: #4CAF50;
+  border: 1px solid #4CAF50;
 }
 
 /* CENNIK */
@@ -205,9 +219,9 @@ section {
   max-width: 600px;
   margin: auto;
   text-align: left;
-  background: #111;
+  background: rgba(0,0,0,0.6);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .price h3 {
@@ -243,7 +257,7 @@ section {
 /* OPINIE */
 
 .review {
-  background: #1a1a1a;
+  background: rgba(255,255,255,0.05);
   padding: 20px;
   border-radius: 10px;
   margin: 10px;
@@ -282,6 +296,8 @@ iframe {
   border: none;
 }
 
+/* STOPKA */
+
 footer {
   padding:40px;
   text-align:center;
@@ -317,7 +333,13 @@ footer {
 <section id="onas" class="fade about">
 <h2>O nas</h2>
 
-<p>Jesteśmy pasjonatami paintballa sportowego...</p>
+<p>Jesteśmy pasjonatami paintballa sportowego, którzy od lat rozwijają swoje umiejętności i zdobywają doświadczenie zarówno na arenie krajowej, jak i międzynarodowej.</p>
+
+<p>Nasza drużyna bierze udział w najwyższych ligach w Europie oraz w Polsce, co pozwala nam przenosić profesjonalne doświadczenie na organizowane przez nas rozgrywki.</p>
+
+<p>Jeden z naszych instruktorów zdobył 2 miejsce U19 we Francji reprezentując Polskę.</p>
+
+<p>Organizujemy gry dla grup znajomych, firm oraz klientów indywidualnych. Gwarantujemy emocje, bezpieczeństwo i świetną atmosferę.</p>
 
 <div class="team">
 <img src="team1.png">
