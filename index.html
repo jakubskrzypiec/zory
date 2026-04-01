@@ -8,16 +8,13 @@
 
 <style>
 
-html {
-  scroll-behavior: smooth;
-  background: linear-gradient(180deg,#050505 0%,#0a0a0a 40%,#111 70%,#050505 100%);
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background: linear-gradient(180deg,#050505 0%,#0d0d0d 30%,#111 60%,#050505 100%);
   color: #eee;
-  min-height: 100vh;
 }
 
 /* NAV */
@@ -26,13 +23,13 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   display: flex;
   justify-content: center;
   gap: 40px;
   padding: 20px;
   z-index: 9999;
-  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -45,11 +42,24 @@ nav a:hover {
   color: #4CAF50;
 }
 
+/* FACEBOOK */
+
+.fb {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 10000;
+}
+
+.fb img {
+  width: 30px;
+}
+
 /* HERO */
 
 header {
   height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
   url('background.png');
   background-size: cover;
   background-position: center;
@@ -62,12 +72,15 @@ header {
 header h1 {
   font-size: 60px;
   margin: 0;
+  letter-spacing: 2px;
 }
 
 header p {
   font-size: 20px;
   color: #ccc;
 }
+
+/* BUTTON */
 
 .btn {
   margin-top: 20px;
@@ -76,27 +89,34 @@ header p {
   color: white;
   border-radius: 25px;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(76,175,80,0.6);
 }
 
 /* SEKCJE */
 
 section {
-  padding: 120px 20px;
+  padding: 100px 20px;
   text-align: center;
-  background: rgba(0,0,0,0.25);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.2));
 }
 
-/* 🔥 FADE FIX */
+/* ANIMACJA */
 
 .fade {
   opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.8s ease;
+  transform: translateY(40px) scale(0.98);
+  transition: 0.8s ease;
 }
 
 .fade.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* O NAS */
@@ -105,13 +125,6 @@ section {
   max-width: 900px;
   margin: auto;
 }
-
-.about p {
-  color: #ddd;
-  line-height: 1.6;
-}
-
-/* TEAM */
 
 .team {
   display: grid;
@@ -124,7 +137,13 @@ section {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 10px;
+  transition: 0.4s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.team img:hover {
+  transform: scale(1.05);
 }
 
 /* STATY */
@@ -138,10 +157,66 @@ section {
 }
 
 .stats div {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.03);
+  padding: 20px 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(76,175,80,0.2);
+  transition: 0.3s;
+  font-size: 28px;
+  color: #4CAF50;
+}
+
+.stats div:hover {
+  transform: translateY(-5px);
+  border-color: #4CAF50;
+}
+
+.stats span {
+  display: block;
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+/* FEATURES */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+
+.feature {
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  border-color: #4CAF50;
+}
+
+/* CENNIK */
+
+.price {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+  background: #111;
   padding: 20px;
   border-radius: 10px;
+}
+
+.price h3 {
   color: #4CAF50;
+}
+
+.price p {
+  border-bottom: 1px solid #333;
+  padding: 8px 0;
 }
 
 /* GALERIA */
@@ -157,14 +232,61 @@ section {
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
+  transition: 0.4s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* STOPKA */
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* OPINIE */
+
+.review {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+/* FORM */
+
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+/* MAPA */
+
+iframe {
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+  border: none;
+}
 
 footer {
   padding:40px;
   text-align:center;
   color:#777;
+  font-size:14px;
 }
 
 </style>
@@ -172,6 +294,10 @@ footer {
 </head>
 
 <body>
+
+<a class="fb" href="https://www.facebook.com/PaintballBorowka" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+</a>
 
 <nav>
 <a href="#onas">O NAS</a>
@@ -183,7 +309,7 @@ footer {
 <header>
 <div>
 <h1>Paintball Żory</h1>
-<p>Adrenalina • Emocje • Rywalizacja</p>
+<p>Adrenalina • Rywalizacja • Emocje</p>
 <a href="#kontakt" class="btn">Zarezerwuj</a>
 </div>
 </header>
@@ -199,9 +325,43 @@ footer {
 </div>
 
 <div class="stats">
-<div>1000+<br>rozegranych gier</div>
-<div>5000+<br>zadowolonych klientów</div>
-<div>5+<br>lat doświadczenia</div>
+<div>1000+<span>rozegranych gier</span></div>
+<div>5000+<span>zadowolonych klientów</span></div>
+<div>5+<span>lat doświadczenia</span></div>
+</div>
+
+</section>
+
+<section class="fade">
+<h2>Dlaczego my?</h2>
+<div class="features">
+<div class="feature">🔥 Profesjonalna drużyna</div>
+<div class="feature">🎯 Najlepsze scenariusze</div>
+<div class="feature">🛡️ Bezpieczeństwo</div>
+<div class="feature">⚡ Mega klimat</div>
+</div>
+</section>
+
+<section id="cennik" class="fade">
+<h2>Cennik</h2>
+
+<div class="price">
+
+<h3>Gel Blaster</h3>
+<p>60 zł – godzina</p>
+
+<h3>Paintball</h3>
+<p>50 zł – 100 kul (pakiet podstawowy)</p>
+<p>120 zł – 500 kul (pakiet extreme)</p>
+
+<h3>.50 CAL</h3>
+<p>50 zł – ~200 kul (pakiet basic)</p>
+<p>120 zł – 500 kul (pakiet extreme)</p>
+
+<h3>Dodatki</h3>
+<p>200 zł – ognisko</p>
+<p>35 zł – kiełbaska z grilla</p>
+
 </div>
 
 </section>
@@ -217,6 +377,29 @@ footer {
 
 </section>
 
+<section class="fade">
+<h2>Opinie</h2>
+
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Mega klimat!</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball w Żorach</div>
+
+</section>
+
+<section id="kontakt" class="fade">
+<h2>Rezerwacja</h2>
+
+<form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
+<input type="text" name="name" placeholder="Imię" required>
+<input type="tel" name="phone" placeholder="Telefon" required>
+<textarea name="message" placeholder="Termin"></textarea>
+<input type="hidden" name="_captcha" value="false">
+<button type="submit">Wyślij</button>
+</form>
+
+<iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&t=&z=15&output=embed"></iframe>
+
+</section>
+
 <footer>
 Paintball Żory © 2026
 </footer>
@@ -225,25 +408,14 @@ Paintball Żory © 2026
 const faders = document.querySelectorAll('.fade');
 
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.15
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
 });
 
-window.addEventListener('load', () => {
-  faders.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      el.classList.add('show');
-    }
-    observer.observe(el);
-  });
-});
+faders.forEach(el => observer.observe(el));
 </script>
 
 </body>
