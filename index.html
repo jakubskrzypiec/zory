@@ -11,87 +11,92 @@
 
 body{
 font-family:Arial;
-background:#0b0f0c;
-color:white;
-line-height:1.6;
+background:#ffffff;
+color:#111;
+line-height:1.7;
 }
 
 /* NAV */
 nav{
 position:fixed;
-width:100%;
 top:0;
+width:100%;
 display:flex;
 justify-content:space-between;
 padding:20px 40px;
-background:rgba(0,0,0,0.7);
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 z-index:1000;
 }
 
-nav a{color:#ccc;margin-left:20px;text-decoration:none;}
-
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-padding:0 10%;
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
-url('background.png');
-background-size:cover;
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:#333;
 }
 
-.hero h1{font-size:80px;}
+/* HERO VIDEO */
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+}
+
+.hero h1{
+font-size:60px;
+color:white;
+text-shadow:0 0 20px rgba(0,0,0,0.7);
+}
+
+.hero p{
+color:#eee;
+}
 
 .btn{
-display:inline-block;
 margin-top:20px;
+display:inline-block;
 padding:15px 30px;
-background:#4CAF50;
-border-radius:30px;
+background:#111;
 color:white;
+border-radius:30px;
 text-decoration:none;
 }
 
-/* CTA */
-.cta{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#4CAF50;
-padding:15px 20px;
-border-radius:30px;
-z-index:999;
-}
-
 /* SEKCJE */
-section{padding:120px 10%;}
+section{
+padding:100px 10%;
+}
 
 /* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:20px;
 }
 
 /* CARD */
 .card{
-background:#111;
-padding:30px;
-border-radius:12px;
+background:#f5f5f5;
+padding:25px;
+border-radius:10px;
 }
 
-/* STATY */
-.stats{
-display:flex;
-gap:40px;
-margin-top:40px;
-}
-
-.stat{
-font-size:40px;
-color:#4CAF50;
+/* ABOUT */
+.about{
+max-width:900px;
+margin:auto;
 }
 
 /* GALERIA */
@@ -100,22 +105,6 @@ width:100%;
 height:250px;
 object-fit:cover;
 border-radius:10px;
-cursor:pointer;
-}
-
-/* FAQ */
-.faq-item{
-margin-bottom:20px;
-padding:15px;
-background:#111;
-border-radius:10px;
-cursor:pointer;
-}
-
-.faq-answer{
-display:none;
-color:#aaa;
-margin-top:10px;
 }
 
 /* FORM */
@@ -127,9 +116,16 @@ margin:10px 0;
 
 button{
 padding:12px;
-background:#4CAF50;
-border:none;
+background:#111;
 color:white;
+border:none;
+}
+
+/* KALENDARZ */
+.calendar{
+background:#f0f0f0;
+padding:20px;
+border-radius:10px;
 }
 
 </style>
@@ -138,47 +134,50 @@ color:white;
 
 <body>
 
-<div class="cta">ZAREZERWUJ</div>
-
 <nav>
 <div><b>Paintball Żory</b></div>
 <div>
 <a href="#about">O nas</a>
 <a href="#offer">Oferta</a>
 <a href="#price">Cennik</a>
-<a href="#faq">FAQ</a>
 <a href="#contact">Kontakt</a>
 </div>
 </nav>
 
 <section class="hero">
+
+<!-- VIDEO -->
+
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-paintball-battle-5176/1080p.mp4" type="video/mp4">
+</video>
+
 <div>
 <h1>Paintball Żory</h1>
-<p>Adrenalina • Emocje • Prawdziwa rywalizacja</p>
-<a href="#contact" class="btn">Zarezerwuj grę</a>
+<p>Adrenalina • Emocje • Rywalizacja</p>
+<a href="#contact" class="btn">Zarezerwuj</a>
 </div>
+
 </section>
 
-<section id="about">
+<section id="about" class="about">
 <h2>O nas</h2>
 
 <p>
-Jesteśmy pasjonatami paintballa sportowego, którzy od lat rozwijają swoje umiejętności w Polsce oraz na arenie międzynarodowej. Nasza działalność opiera się na doświadczeniu zdobytym podczas udziału w profesjonalnych rozgrywkach, gdzie liczy się strategia, szybkość działania oraz współpraca zespołowa. Dzięki temu jesteśmy w stanie zapewnić naszym klientom nie tylko świetną zabawę, ale również autentyczne doświadczenie gry na wysokim poziomie.
+Jesteśmy zespołem pasjonatów paintballa sportowego, którzy od lat rozwijają swoje umiejętności zarówno w Polsce, jak i na arenie międzynarodowej. Nasze doświadczenie zdobyte podczas udziału w rozgrywkach ligowych oraz turniejach pozwala nam tworzyć unikalne scenariusze gier, które dostarczają maksymalnych emocji i realistycznych wrażeń.
 </p>
 
 <p>
-Organizujemy rozgrywki dla grup znajomych, firm, klientów indywidualnych oraz wszystkich tych, którzy chcą przeżyć coś więcej niż zwykłą rozrywkę. Każda gra jest starannie zaplanowana, aby dostarczyć maksymalnych emocji, jednocześnie zachowując pełne bezpieczeństwo uczestników. Nasze pole gry zostało przygotowane w taki sposób, aby umożliwić różnorodne scenariusze — od klasycznych starć po bardziej zaawansowane rozgrywki taktyczne.
+Organizujemy profesjonalne rozgrywki dla grup znajomych, firm, klientów indywidualnych oraz wszystkich, którzy chcą przeżyć coś więcej niż zwykłą rozrywkę. Każda gra jest dokładnie zaplanowana, a nasi instruktorzy dbają o bezpieczeństwo oraz dobrą atmosferę.
 </p>
 
 <p>
-Naszym celem jest stworzenie miejsca, do którego chce się wracać. Dbamy o klimat, atmosferę oraz jakość obsługi, co sprawia, że każda rozgrywka staje się niezapomnianym doświadczeniem. Niezależnie od tego, czy jesteś początkującym graczem, czy masz już doświadczenie — u nas znajdziesz coś dla siebie.
+Nasze pole paintballowe zostało zaprojektowane w taki sposób, aby umożliwić różnorodne scenariusze – od dynamicznych starć po taktyczne misje zespołowe. Dzięki temu każda rozgrywka jest inna i dostarcza nowych emocji.
 </p>
 
-<div class="stats">
-<div class="stat" data-target="1000">0</div>
-<div class="stat" data-target="5000">0</div>
-<div class="stat" data-target="5">0</div>
-</div>
+<p>
+Stawiamy na jakość, profesjonalizm i klimat, który sprawia, że nasi klienci wracają do nas regularnie. Naszym celem jest stworzenie miejsca, które będzie kojarzyć się z najlepszą zabawą, integracją i niezapomnianymi wspomnieniami.
+</p>
 
 </section>
 
@@ -186,12 +185,12 @@ Naszym celem jest stworzenie miejsca, do którego chce się wracać. Dbamy o kli
 <h2>Oferta</h2>
 
 <div class="grid">
-<div class="card">Paintball dla grup znajomych</div>
+<div class="card">Paintball dla grup</div>
 <div class="card">Imprezy firmowe</div>
-<div class="card">Wieczory kawalerskie</div>
+<div class="card">Kawalerskie</div>
 <div class="card">Urodziny</div>
 <div class="card">Gel Blaster</div>
-<div class="card">Eventy specjalne</div>
+<div class="card">Eventy</div>
 </div>
 
 </section>
@@ -200,48 +199,10 @@ Naszym celem jest stworzenie miejsca, do którego chce się wracać. Dbamy o kli
 <h2>Cennik</h2>
 
 <div class="grid">
-<div class="card">
-<h3>Paintball</h3>
-<p>100 kul – 50 zł</p>
-<p>500 kul – 120 zł</p>
-</div>
-
-<div class="card">
-<h3>.50 CAL</h3>
-<p>200 kul – 50 zł</p>
-<p>500 kul – 120 zł</p>
-</div>
-
-<div class="card">
-<h3>Gel Blaster</h3>
-<p>60 zł / godzina</p>
-</div>
-
-<div class="card">
-<h3>Dodatki</h3>
-<p>Ognisko – 200 zł</p>
-<p>Kiełbaska – 35 zł</p>
-</div>
-</div>
-
-</section>
-
-<section id="faq">
-<h2>FAQ</h2>
-
-<div class="faq-item">
-<p>Jak długo trwa gra?</p>
-<div class="faq-answer">Standardowa rozgrywka trwa od 1 do 2 godzin.</div>
-</div>
-
-<div class="faq-item">
-<p>Czy paintball jest bezpieczny?</p>
-<div class="faq-answer">Tak, zapewniamy pełne wyposażenie ochronne.</div>
-</div>
-
-<div class="faq-item">
-<p>Czy trzeba mieć doświadczenie?</p>
-<div class="faq-answer">Nie, wszystko tłumaczymy na miejscu.</div>
+<div class="card">Paintball 100 kul – 50 zł</div>
+<div class="card">Paintball 500 kul – 120 zł</div>
+<div class="card">Gel Blaster – 60 zł/h</div>
+<div class="card">Ognisko – 200 zł</div>
 </div>
 
 </section>
@@ -260,43 +221,27 @@ Naszym celem jest stworzenie miejsca, do którego chce się wracać. Dbamy o kli
 <section id="contact">
 <h2>Rezerwacja</h2>
 
+<div class="grid">
+
+<div>
 <form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
-<input type="text" name="name" placeholder="Imię" required>
-<input type="tel" name="phone" placeholder="Telefon" required>
-<textarea name="message" placeholder="Termin"></textarea>
-<button type="submit">Wyślij</button>
+<input type="text" placeholder="Imię" required>
+<input type="tel" placeholder="Telefon" required>
+<textarea placeholder="Termin"></textarea>
+<button>Wyślij</button>
 </form>
+</div>
+
+<div class="calendar">
+<h3>Dostępność</h3>
+<p>Pon–Pt: 10:00 – 20:00</p>
+<p>Sob–Nd: 9:00 – 22:00</p>
+<p>Rezerwacja telefoniczna lub przez formularz</p>
+</div>
+
+</div>
 
 </section>
-
-<script>
-
-/* LICZNIKI */
-document.querySelectorAll('.stat').forEach(el=>{
-let target=+el.dataset.target;
-let count=0;
-
-let update=()=>{
-count+=target/100;
-if(count<target){
-el.innerText=Math.floor(count);
-requestAnimationFrame(update);
-}else{
-el.innerText=target;
-}
-}
-update();
-});
-
-/* FAQ */
-document.querySelectorAll('.faq-item').forEach(item=>{
-item.onclick=()=>{
-let ans=item.querySelector('.faq-answer');
-ans.style.display=ans.style.display==='block'?'none':'block';
-}
-});
-
-</script>
 
 </body>
 </html>
