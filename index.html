@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paintball Żory</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,7 +13,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Orbitron', Arial, sans-serif;
+  font-family: 'Rajdhani', Arial, sans-serif;
   color: #eee;
   background:
   radial-gradient(circle at top left, #0f1a14, transparent 40%),
@@ -33,7 +33,6 @@ nav {
   gap: 20px;
   padding: 15px;
   z-index: 9999;
-  flex-wrap: wrap;
 }
 
 nav a {
@@ -54,11 +53,6 @@ nav a:hover { color: #4CAF50; }
   z-index: 9999;
 }
 
-.hud span {
-  display: block;
-  opacity: 0.8;
-}
-
 /* CTA */
 
 .cta {
@@ -73,8 +67,6 @@ nav a:hover { color: #4CAF50; }
   font-weight: bold;
   z-index: 9999;
 }
-
-.cta:hover { transform: scale(1.1); }
 
 /* HERO */
 
@@ -104,11 +96,6 @@ header p { color: #ccc; }
   font-weight: bold;
 }
 
-.btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px #4CAF50;
-}
-
 /* SEKCJE */
 
 section {
@@ -121,7 +108,7 @@ section {
 .about { max-width: 800px; margin: auto; }
 
 .about p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: #ccc;
 }
@@ -188,6 +175,16 @@ section {
   border-radius: 10px;
 }
 
+/* MAPA */
+
+iframe {
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+}
+
 /* FORM */
 
 form {
@@ -224,9 +221,9 @@ button {
 <body>
 
 <div class="hud">
-<span>STATUS: ONLINE</span>
-<span>AMMO: ∞</span>
-<span>TRYB: PAINTBALL</span>
+STATUS: ONLINE<br>
+AMMO: ∞<br>
+TRYB: PAINTBALL
 </div>
 
 <a href="#kontakt" class="cta">REZERWUJ</a>
@@ -269,16 +266,6 @@ Grasz. Walczysz. Wygrywasz.
 
 </section>
 
-<section>
-<h2>Dlaczego my?</h2>
-<div class="features">
-<div class="feature">🔥 Drużyna sportowa</div>
-<div class="feature">🎯 Scenariusze</div>
-<div class="feature">🛡️ Bezpieczeństwo</div>
-<div class="feature">⚡ Klimat</div>
-</div>
-</section>
-
 <section id="cennik">
 <h2>Cennik</h2>
 <p>Paintball od 50 zł</p>
@@ -304,11 +291,11 @@ Grasz. Walczysz. Wygrywasz.
 <button type="submit">Wyślij</button>
 </form>
 
+<iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&t=&z=15&output=embed"></iframe>
+
 </section>
 
 <script>
-
-/* STRZAŁY */
 document.addEventListener("click", e => {
   const splat = document.createElement("div");
   splat.style.position = "fixed";
@@ -321,7 +308,6 @@ document.addEventListener("click", e => {
   document.body.appendChild(splat);
   setTimeout(() => splat.remove(), 300);
 });
-
 </script>
 
 </body>
