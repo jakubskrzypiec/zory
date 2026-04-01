@@ -439,12 +439,27 @@ Paintball Żory © 2026
 const faders = document.querySelectorAll('.fade');
 
 const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.15
 });
+
+window.addEventListener('load', () => {
+  faders.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('show');
+    }
+    observer.observe(el);
+  });
 });
+</script>
+
 
 faders.forEach(el => observer.observe(el));
 </script>
