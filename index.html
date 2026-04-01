@@ -1,253 +1,209 @@
 <!DOCTYPE html>
-
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paintball Żory</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-html{scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f8f9fb;color:#222}
 
-body{
-margin:0;
-font-family:Arial;
-background:#ffffff;
-color:#111;
-line-height:1.7;
-}
-
-/* NAV */
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:white;
-display:flex;
-justify-content:center;
-gap:40px;
-padding:20px;
-z-index:999;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-
-nav a{color:#333;text-decoration:none;}
-nav a:hover{color:#4CAF50;}
-
-/* HERO VIDEO */
 header{
 height:100vh;
 position:relative;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
 overflow:hidden;
 }
 
-header video{
+video{
 position:absolute;
-width:100%;
-height:100%;
+top:0;left:0;
+width:100%;height:100%;
 object-fit:cover;
 z-index:-1;
 }
 
-header h1{
-font-size:60px;
-color:white;
-text-shadow:0 0 20px black;
+.overlay{
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(255,255,255,0.6);
 }
 
-/* BUTTON */
-.btn{
-margin-top:20px;
-padding:12px 25px;
-background:#111;
-color:white;
-border-radius:25px;
-text-decoration:none;
-}
-
-/* SEKCJE */
-section{
-padding:100px 20px;
+.hero{
+position:relative;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
+padding:20px;
 }
 
-/* ANIMACJA */
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:0.8s;
-}
-.fade.show{
-opacity:1;
-transform:translateY(0);
+.hero h1{
+font-size:3rem;
+font-weight:700;
+margin-bottom:20px;
 }
 
-/* GRID */
-.grid{
+.hero p{
+max-width:600px;
+margin-bottom:30px;
+}
+
+.btn{
+padding:12px 25px;
+background:#2ecc71;
+border:none;
+border-radius:30px;
+color:#fff;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{background:#27ae60}
+
+section{
+padding:80px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+font-size:2rem;
+}
+
+.gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-/* KARTY */
-.card{
-background:#f5f5f5;
-padding:20px;
-border-radius:10px;
-}
-
-/* GALERIA */
 .gallery img{
 width:100%;
-height:250px;
-object-fit:cover;
-border-radius:10px;
+border-radius:12px;
+transition:0.3s;
 }
 
-/* FAQ */
-.faq-item{
-margin:10px;
-cursor:pointer;
-background:#f0f0f0;
-padding:15px;
-border-radius:10px;
+.gallery img:hover{
+transform:scale(1.05);
 }
-.faq-answer{display:none;margin-top:10px;}
 
-/* FORM */
-input,textarea{
+.about p{
+margin-bottom:20px;
+line-height:1.6;
+}
+
+.team{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.team img{
 width:100%;
-padding:10px;
-margin:10px 0;
+max-width:500px;
+border-radius:12px;
 }
 
-/* MAPA */
+.contact form{
+display:flex;
+flex-direction:column;
+gap:15px;
+max-width:500px;
+margin:auto;
+}
+
+input,textarea{
+padding:10px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
 iframe{
 width:100%;
-height:300px;
-border:none;
+height:400px;
+border:0;
+border-radius:12px;
 }
-</style>
 
+footer{
+text-align:center;
+padding:30px;
+background:#eee;
+}
+
+</style>
 </head>
 
 <body>
 
-<nav>
-<a href="#onas">O NAS</a>
-<a href="#cennik">CENNIK</a>
-<a href="#galeria">GALERIA</a>
-<a href="#kontakt">KONTAKT</a>
-</nav>
-
 <header>
-
 <video autoplay muted loop>
-<source src="https://cdn.coverr.co/videos/coverr-paintball-battle-5176/1080p.mp4" type="video/mp4">
+<source src="background.mp4" type="video/mp4">
 </video>
+<div class="overlay"></div>
 
-<div>
+<div class="hero">
 <h1>Paintball Żory</h1>
-<p>Adrenalina • Emocje • Rywalizacja</p>
-<a href="#kontakt" class="btn">Zarezerwuj</a>
+<p>Adrenalina, strategia i świetna zabawa. Zorganizuj niezapomniane wydarzenie już dziś.</p>
+<button class="btn">Zarezerwuj</button>
 </div>
-
 </header>
 
-<section id="onas" class="fade">
+<section class="about">
 <h2>O nas</h2>
-
-<p>
-Jesteśmy zespołem pasjonatów paintballa sportowego, którzy od wielu lat aktywnie działają na scenie krajowej i międzynarodowej. Nasze doświadczenie zdobyte podczas rozgrywek ligowych oraz turniejów pozwala nam tworzyć unikalne scenariusze gier, które dostarczają maksymalnych emocji i realistycznych wrażeń.
-</p>
-
-<p>
-Organizujemy rozgrywki dla grup znajomych, firm, klientów indywidualnych oraz wszystkich, którzy chcą przeżyć coś więcej niż zwykłą rozrywkę. Każda gra jest dokładnie zaplanowana, a nasi instruktorzy dbają o bezpieczeństwo oraz dobrą atmosferę.
-</p>
-
-<p>
-Nasze pole zostało zaprojektowane tak, aby umożliwić różnorodne scenariusze – od dynamicznych starć po taktyczne misje zespołowe. Dzięki temu każda rozgrywka jest inna i dostarcza nowych emocji.
-</p>
-
-<p>
-Dbamy o klimat, profesjonalizm oraz jakość obsługi. Naszym celem jest stworzenie miejsca, do którego chce się wracać. Niezależnie od tego czy jesteś początkujący czy zaawansowany – u nas znajdziesz coś dla siebie.
-</p>
-
+<p>Paintball Żory to miejsce stworzone z pasji do adrenaliny, sportu i integracji...</p>
+<p>Nasza oferta skierowana jest zarówno do osób prywatnych, jak i firm...</p>
+<p>Dbamy o bezpieczeństwo...</p>
+<p>Organizujemy imprezy firmowe, urodziny, wieczory kawalerskie...</p>
+<p>Każda rozgrywka to niezapomniane emocje...</p>
+<p>Nasze pole zostało zaprojektowane tak, aby zapewnić maksymalną frajdę...</p>
+<p>Zapraszamy wszystkich, niezależnie od doświadczenia...</p>
+<p>Dołącz do nas i przekonaj się sam!</p>
 </section>
 
-<section id="cennik" class="fade">
-<h2>Cennik</h2>
-
-<div class="grid">
-<div class="card">Paintball 100 kul – 50 zł</div>
-<div class="card">Paintball 500 kul – 120 zł</div>
-<div class="card">Gel Blaster – 60 zł/h</div>
-<div class="card">Ognisko – 200 zł</div>
-</div>
-
-</section>
-
-<section id="galeria" class="fade">
+<section>
 <h2>Galeria</h2>
-
-<div class="grid gallery">
+<div class="gallery">
+<img src="image.png">
 <img src="image1.png">
 <img src="image2.png">
 <img src="image3.png">
 </div>
-
 </section>
 
-<section class="fade">
-<h2>FAQ</h2>
-
-<div class="faq-item">
-Jak długo trwa gra?
-<div class="faq-answer">1-2 godziny</div>
+<section>
+<h2>Nasza drużyna</h2>
+<div class="team">
+<img src="team1.png">
+<img src="team2.png">
 </div>
-
-<div class="faq-item">
-Czy jest bezpiecznie?
-<div class="faq-answer">Tak, pełne zabezpieczenie</div>
-</div>
-
 </section>
 
-<section id="kontakt" class="fade">
-<h2>Rezerwacja</h2>
-
-<form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
-<input type="text" placeholder="Imię">
-<input type="tel" placeholder="Telefon">
-<textarea placeholder="Termin"></textarea>
-<button>Wyślij</button>
+<section class="contact">
+<h2>Kontakt</h2>
+<form action="https://formspree.io/f/mayvlzrd" method="POST">
+<input type="text" name="name" placeholder="Imię" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Wiadomość" required></textarea>
+<button class="btn">Wyślij</button>
 </form>
 
-<iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&z=15&output=embed"></iframe>
+<br>
 
+<iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Zory&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </section>
 
-<script>
-const faders=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
-faders.forEach(el=>{
-if(el.getBoundingClientRect().top<window.innerHeight-100){
-el.classList.add('show');
-}
-});
-});
-
-document.querySelectorAll('.faq-item').forEach(item=>{
-item.onclick=()=>{
-let ans=item.querySelector('.faq-answer');
-ans.style.display=ans.style.display==='block'?'none':'block';
-}
-});
-</script>
+<footer>
+<p>© 2026 Paintball Żory</p>
+</footer>
 
 </body>
 </html>
