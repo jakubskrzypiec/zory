@@ -22,15 +22,6 @@ body {
   linear-gradient(180deg, #0a0f0c, #111, #0a0f0c);
 }
 
-/* LOGO */
-
-.logo {
-  width: 350px;
-  max-width: 80%;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 15px rgba(76,175,80,0.4));
-}
-
 /* NAV */
 
 nav {
@@ -39,11 +30,24 @@ nav {
   top: 0;
   background: rgba(0,0,0,0.9);
   display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
   z-index: 9999;
-  flex-wrap: wrap;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 55px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
 }
 
 nav a {
@@ -83,6 +87,19 @@ header {
   text-align: center;
 }
 
+.hero-logo {
+  width: 250px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 20px rgba(76,175,80,0.5));
+  transition: 0.3s;
+}
+
+.hero-logo:hover {
+  transform: scale(1.05);
+}
+
 /* BUTTON */
 
 .btn {
@@ -109,25 +126,20 @@ section {
   background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.2));
 }
 
-/* ANIMACJA */
-
-.fade {
-  opacity: 0;
-  transform: translateY(40px) scale(0.98);
-  transition: 0.8s ease;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
 /* O NAS */
 
 .about {
   max-width: 900px;
   margin: auto;
 }
+
+.about p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* TEAM */
 
 .team {
   display: grid;
@@ -141,12 +153,6 @@ section {
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
-  transition: 0.4s;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.team img:hover {
-  transform: scale(1.05);
 }
 
 /* STATY */
@@ -163,15 +169,8 @@ section {
   background: rgba(255,255,255,0.03);
   padding: 20px 30px;
   border-radius: 12px;
-  border: 1px solid rgba(76,175,80,0.2);
-  transition: 0.3s;
   font-size: 28px;
   color: #4CAF50;
-}
-
-.stats div:hover {
-  transform: translateY(-5px);
-  border-color: #4CAF50;
 }
 
 .stats span {
@@ -193,33 +192,6 @@ section {
   background: rgba(255,255,255,0.03);
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: 0.3s;
-}
-
-.feature:hover {
-  transform: translateY(-5px);
-  border-color: #4CAF50;
-}
-
-/* CENNIK */
-
-.price {
-  max-width: 600px;
-  margin: auto;
-  text-align: left;
-  background: #111;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.price h3 {
-  color: #4CAF50;
-}
-
-.price p {
-  border-bottom: 1px solid #333;
-  padding: 8px 0;
 }
 
 /* GALERIA */
@@ -235,21 +207,6 @@ section {
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
-  transition: 0.4s;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-/* OPINIE */
-
-.review {
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 10px;
 }
 
 /* FORM */
@@ -273,7 +230,6 @@ button {
   color: white;
   padding: 12px;
   border: none;
-  cursor: pointer;
 }
 
 /* MAPA */
@@ -289,7 +245,6 @@ footer {
   padding:40px;
   text-align:center;
   color:#777;
-  font-size:14px;
 }
 
 </style>
@@ -303,7 +258,7 @@ footer {
 
 <nav>
 <div class="nav-left">
-  <img src="logo.png.png" class="nav-logo">
+  <img src="logo.png" class="nav-logo">
 </div>
 
 <div class="nav-links">
@@ -313,16 +268,18 @@ footer {
   <a href="#kontakt">KONTAKT</a>
 </div>
 </nav>
+
 <header>
 <div>
 
-<img src="logo.png.png" alt="Paintball Żory" class="hero-logo">
+<img src="logo.png" alt="Paintball Żory" class="hero-logo">
 
 <a href="#kontakt" class="btn">Zarezerwuj</a>
 
 </div>
 </header>
-<section id="onas" class="fade about">
+
+<section id="onas" class="about">
 <h2>O nas</h2>
 
 <p>
@@ -348,7 +305,7 @@ Zbierz ekipę, wejdź na pole i sprawdź kto naprawdę rządzi 💥
 
 </section>
 
-<section class="fade">
+<section>
 <h2>Dlaczego my?</h2>
 <div class="features">
 <div class="feature">🔥 Profesjonalna drużyna</div>
@@ -358,57 +315,32 @@ Zbierz ekipę, wejdź na pole i sprawdź kto naprawdę rządzi 💥
 </div>
 </section>
 
-<section id="cennik" class="fade">
+<section id="cennik">
 <h2>Cennik</h2>
 
 <div class="price">
-
-<h3>Gel Blaster</h3>
-<p>60 zł – godzina</p>
-
-<h3>Paintball</h3>
-<p>50 zł – 100 kul (pakiet podstawowy)</p>
-<p>120 zł – 500 kul (pakiet extreme)</p>
-
-<h3>.50 CAL</h3>
-<p>50 zł – ~200 kul (pakiet basic)</p>
-<p>120 zł – 500 kul (pakiet extreme)</p>
-
-<h3>Dodatki</h3>
-<p>200 zł – ognisko</p>
-<p>35 zł – kiełbaska z grilla</p>
-
+<p>Paintball od 50 zł</p>
+<p>Pakiety do 500 kul</p>
 </div>
 
 </section>
 
-<section id="galeria" class="fade">
+<section id="galeria">
 <h2>Galeria</h2>
-
 <div class="gallery">
 <img src="image1.png">
 <img src="image2.png">
 <img src="image3.png">
 </div>
-
 </section>
 
-<section class="fade">
-<h2>Opinie</h2>
-
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Mega klimat!</div>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball w Żorach</div>
-
-</section>
-
-<section id="kontakt" class="fade">
+<section id="kontakt">
 <h2>Rezerwacja</h2>
 
 <form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
 <input type="text" name="name" placeholder="Imię" required>
 <input type="tel" name="phone" placeholder="Telefon" required>
 <textarea name="message" placeholder="Termin"></textarea>
-<input type="hidden" name="_captcha" value="false">
 <button type="submit">Wyślij</button>
 </form>
 
@@ -420,59 +352,5 @@ Zbierz ekipę, wejdź na pole i sprawdź kto naprawdę rządzi 💥
 Paintball Żory © 2026
 </footer>
 
-<script>
-const faders = document.querySelectorAll('.fade');
-
-const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
-});
-});
-
-faders.forEach(el => observer.observe(el));
-</script>
-
 </body>
 </html>
-/* NAV ULEPSZENIE */
-
-nav {
-  justify-content: space-between;
-  padding: 15px 40px;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-logo {
-  width: 60px;
-  transition: 0.3s;
-}
-
-.nav-logo:hover {
-  transform: scale(1.1);
-}
-
-/* HERO LOGO */
-
-.hero-logo {
-  width: 250px;
-  max-width: 80%;
-  margin-bottom: 30px;
-  transition: 0.4s;
-  filter: drop-shadow(0 0 20px rgba(76,175,80,0.5));
-}
-
-.hero-logo:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 30px rgba(76,175,80,0.8));
-}
