@@ -6,17 +6,12 @@
 <title>Paintball Żory</title>
 
 <style>
-
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+* {margin:0; padding:0; box-sizing:border-box;}
 
 body {
   font-family: Arial, sans-serif;
-  color:#fff;
   background:#0b0f0c;
+  color:#fff;
 }
 
 /* NAV */
@@ -28,19 +23,15 @@ nav {
   display:flex;
   justify-content:space-between;
   padding:20px 40px;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.7);
   backdrop-filter:blur(10px);
   z-index:1000;
 }
 
 nav a {
-  color:#ccc;
+  color:#ddd;
+  margin-left:20px;
   text-decoration:none;
-  margin:0 15px;
-}
-
-nav a:hover {
-  color:#4CAF50;
 }
 
 /* HERO */
@@ -48,11 +39,10 @@ nav a:hover {
 .hero {
   height:100vh;
   display:flex;
-  justify-content:center;
   align-items:center;
-  text-align:center;
+  padding:0 10%;
   background:
-  linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+  linear-gradient(to right, rgba(0,0,0,0.8), transparent),
   url('background.png');
   background-size:cover;
 }
@@ -62,73 +52,73 @@ nav a:hover {
 }
 
 .hero p {
-  color:#aaa;
-  margin:10px 0;
+  margin:20px 0;
+  color:#ccc;
 }
 
 .btn {
-  display:inline-block;
-  margin-top:20px;
   padding:15px 30px;
-  border-radius:30px;
   background:#4CAF50;
-  color:white;
+  border-radius:30px;
+  color:#fff;
   text-decoration:none;
 }
 
 /* SEKCJE */
 
 section {
-  padding:100px 20px;
-  max-width:1100px;
-  margin:auto;
+  padding:120px 10%;
 }
 
-/* SPLIT */
+/* O NAS */
 
-.split {
+.about {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:center;
+  gap:60px;
 }
 
-.split img {
+.about img {
   width:100%;
   border-radius:10px;
-}
-
-/* KARTY */
-
-.cards {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-
-.card {
-  background:#121712;
-  padding:25px;
-  border-radius:12px;
-  text-align:center;
-  border:1px solid #1f2a22;
-}
-
-.card h3 {
-  color:#4CAF50;
 }
 
 /* STATY */
 
 .stats {
   display:flex;
-  justify-content:space-around;
-  text-align:center;
-  margin-top:40px;
+  gap:40px;
+  margin-top:30px;
 }
 
 .stats div {
-  font-size:30px;
+  font-size:28px;
+  color:#4CAF50;
+}
+
+/* PAS */
+
+.band {
+  background:#111;
+  text-align:center;
+  padding:60px;
+}
+
+/* CENNIK */
+
+.price {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.price-box {
+  background:#121712;
+  padding:30px;
+  border-radius:10px;
+}
+
+.price-box h3 {
   color:#4CAF50;
 }
 
@@ -147,17 +137,18 @@ section {
   border-radius:10px;
 }
 
-/* FORM */
+/* KONTAKT */
 
-form {
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  max-width:400px;
+.contact {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
 }
 
 input, textarea {
+  width:100%;
   padding:10px;
+  margin:10px 0;
   border:none;
   border-radius:5px;
 }
@@ -165,9 +156,8 @@ input, textarea {
 button {
   padding:12px;
   background:#4CAF50;
-  color:white;
   border:none;
-  cursor:pointer;
+  color:white;
 }
 
 /* MAPA */
@@ -175,7 +165,6 @@ button {
 iframe {
   width:100%;
   height:300px;
-  margin-top:20px;
   border:none;
 }
 
@@ -208,14 +197,12 @@ footer {
 </div>
 </section>
 
-<section id="about">
-<div class="split">
+<section id="about" class="about">
 <div>
 <h2>O nas</h2>
 <p>
-Jesteśmy pasjonatami paintballa sportowego z doświadczeniem w rozgrywkach
-krajowych i międzynarodowych. Organizujemy gry dla każdego — od ekip
-znajomych po firmy.
+Jesteśmy pasjonatami paintballa sportowego, którzy biorą udział w rozgrywkach
+w Polsce i Europie. Organizujemy profesjonalne gry dla grup i firm.
 </p>
 
 <div class="stats">
@@ -226,44 +213,36 @@ znajomych po firmy.
 
 </div>
 
-<img src="image1.png">
-</div>
+<img src="team1.png">
 </section>
 
-<section>
-<h2>Dlaczego my?</h2>
-
-<div class="cards">
-<div class="card">🔥 Profesjonalna drużyna</div>
-<div class="card">🎯 Scenariusze</div>
-<div class="card">🛡️ Bezpieczeństwo</div>
-<div class="card">⚡ Mega klimat</div>
-</div>
+<section class="band">
+<h2>Profesjonalne rozgrywki • Sprzęt • Emocje</h2>
 </section>
 
 <section id="price">
 <h2>Cennik</h2>
 
-<div class="cards">
+<div class="price">
 
-<div class="card">
+<div class="price-box">
 <h3>Paintball</h3>
 <p>100 kul – 50 zł</p>
 <p>500 kul – 120 zł</p>
 </div>
 
-<div class="card">
+<div class="price-box">
 <h3>.50 CAL</h3>
 <p>200 kul – 50 zł</p>
 <p>500 kul – 120 zł</p>
 </div>
 
-<div class="card">
+<div class="price-box">
 <h3>Gel Blaster</h3>
 <p>60 zł / godzina</p>
 </div>
 
-<div class="card">
+<div class="price-box">
 <h3>Dodatki</h3>
 <p>Ognisko – 200 zł</p>
 <p>Kiełbaska – 35 zł</p>
@@ -282,10 +261,9 @@ znajomych po firmy.
 </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="contact">
+<div>
 <h2>Rezerwacja</h2>
-
-<div class="split">
 
 <form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
 <input type="text" name="name" placeholder="Imię" required>
@@ -294,13 +272,13 @@ znajomych po firmy.
 <button type="submit">Wyślij</button>
 </form>
 
+</div>
+
 <div>
-<h3>Lokalizacja</h3>
+<h2>Lokalizacja</h2>
 <p>Kolejowa 43, Żory</p>
 
 <iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&z=15&output=embed"></iframe>
-</div>
-
 </div>
 </section>
 
