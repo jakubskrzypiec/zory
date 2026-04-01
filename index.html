@@ -7,9 +7,10 @@
 <title>Paintball Żory</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 body{
+margin:0;
 font-family:Arial;
 background:#ffffff;
 color:#111;
@@ -21,32 +22,30 @@ nav{
 position:fixed;
 top:0;
 width:100%;
-display:flex;
-justify-content:space-between;
-padding:20px 40px;
 background:white;
+display:flex;
+justify-content:center;
+gap:40px;
+padding:20px;
+z-index:999;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
-z-index:1000;
 }
 
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:#333;
-}
+nav a{color:#333;text-decoration:none;}
+nav a:hover{color:#4CAF50;}
 
 /* HERO VIDEO */
-.hero{
+header{
 height:100vh;
 position:relative;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
 overflow:hidden;
 }
 
-.hero video{
+header video{
 position:absolute;
 width:100%;
 height:100%;
@@ -54,29 +53,37 @@ object-fit:cover;
 z-index:-1;
 }
 
-.hero h1{
+header h1{
 font-size:60px;
 color:white;
-text-shadow:0 0 20px rgba(0,0,0,0.7);
+text-shadow:0 0 20px black;
 }
 
-.hero p{
-color:#eee;
-}
-
+/* BUTTON */
 .btn{
 margin-top:20px;
-display:inline-block;
-padding:15px 30px;
+padding:12px 25px;
 background:#111;
 color:white;
-border-radius:30px;
+border-radius:25px;
 text-decoration:none;
 }
 
 /* SEKCJE */
 section{
-padding:100px 10%;
+padding:100px 20px;
+text-align:center;
+}
+
+/* ANIMACJA */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
+.fade.show{
+opacity:1;
+transform:translateY(0);
 }
 
 /* GRID */
@@ -86,17 +93,11 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-/* CARD */
+/* KARTY */
 .card{
 background:#f5f5f5;
-padding:25px;
+padding:20px;
 border-radius:10px;
-}
-
-/* ABOUT */
-.about{
-max-width:900px;
-margin:auto;
 }
 
 /* GALERIA */
@@ -107,6 +108,16 @@ object-fit:cover;
 border-radius:10px;
 }
 
+/* FAQ */
+.faq-item{
+margin:10px;
+cursor:pointer;
+background:#f0f0f0;
+padding:15px;
+border-radius:10px;
+}
+.faq-answer{display:none;margin-top:10px;}
+
 /* FORM */
 input,textarea{
 width:100%;
@@ -114,20 +125,12 @@ padding:10px;
 margin:10px 0;
 }
 
-button{
-padding:12px;
-background:#111;
-color:white;
+/* MAPA */
+iframe{
+width:100%;
+height:300px;
 border:none;
 }
-
-/* KALENDARZ */
-.calendar{
-background:#f0f0f0;
-padding:20px;
-border-radius:10px;
-}
-
 </style>
 
 </head>
@@ -135,18 +138,13 @@ border-radius:10px;
 <body>
 
 <nav>
-<div><b>Paintball Żory</b></div>
-<div>
-<a href="#about">O nas</a>
-<a href="#offer">Oferta</a>
-<a href="#price">Cennik</a>
-<a href="#contact">Kontakt</a>
-</div>
+<a href="#onas">O NAS</a>
+<a href="#cennik">CENNIK</a>
+<a href="#galeria">GALERIA</a>
+<a href="#kontakt">KONTAKT</a>
 </nav>
 
-<section class="hero">
-
-<!-- VIDEO -->
+<header>
 
 <video autoplay muted loop>
 <source src="https://cdn.coverr.co/videos/coverr-paintball-battle-5176/1080p.mp4" type="video/mp4">
@@ -155,47 +153,33 @@ border-radius:10px;
 <div>
 <h1>Paintball Żory</h1>
 <p>Adrenalina • Emocje • Rywalizacja</p>
-<a href="#contact" class="btn">Zarezerwuj</a>
+<a href="#kontakt" class="btn">Zarezerwuj</a>
 </div>
 
-</section>
+</header>
 
-<section id="about" class="about">
+<section id="onas" class="fade">
 <h2>O nas</h2>
 
 <p>
-Jesteśmy zespołem pasjonatów paintballa sportowego, którzy od lat rozwijają swoje umiejętności zarówno w Polsce, jak i na arenie międzynarodowej. Nasze doświadczenie zdobyte podczas udziału w rozgrywkach ligowych oraz turniejach pozwala nam tworzyć unikalne scenariusze gier, które dostarczają maksymalnych emocji i realistycznych wrażeń.
+Jesteśmy zespołem pasjonatów paintballa sportowego, którzy od wielu lat aktywnie działają na scenie krajowej i międzynarodowej. Nasze doświadczenie zdobyte podczas rozgrywek ligowych oraz turniejów pozwala nam tworzyć unikalne scenariusze gier, które dostarczają maksymalnych emocji i realistycznych wrażeń.
 </p>
 
 <p>
-Organizujemy profesjonalne rozgrywki dla grup znajomych, firm, klientów indywidualnych oraz wszystkich, którzy chcą przeżyć coś więcej niż zwykłą rozrywkę. Każda gra jest dokładnie zaplanowana, a nasi instruktorzy dbają o bezpieczeństwo oraz dobrą atmosferę.
+Organizujemy rozgrywki dla grup znajomych, firm, klientów indywidualnych oraz wszystkich, którzy chcą przeżyć coś więcej niż zwykłą rozrywkę. Każda gra jest dokładnie zaplanowana, a nasi instruktorzy dbają o bezpieczeństwo oraz dobrą atmosferę.
 </p>
 
 <p>
-Nasze pole paintballowe zostało zaprojektowane w taki sposób, aby umożliwić różnorodne scenariusze – od dynamicznych starć po taktyczne misje zespołowe. Dzięki temu każda rozgrywka jest inna i dostarcza nowych emocji.
+Nasze pole zostało zaprojektowane tak, aby umożliwić różnorodne scenariusze – od dynamicznych starć po taktyczne misje zespołowe. Dzięki temu każda rozgrywka jest inna i dostarcza nowych emocji.
 </p>
 
 <p>
-Stawiamy na jakość, profesjonalizm i klimat, który sprawia, że nasi klienci wracają do nas regularnie. Naszym celem jest stworzenie miejsca, które będzie kojarzyć się z najlepszą zabawą, integracją i niezapomnianymi wspomnieniami.
+Dbamy o klimat, profesjonalizm oraz jakość obsługi. Naszym celem jest stworzenie miejsca, do którego chce się wracać. Niezależnie od tego czy jesteś początkujący czy zaawansowany – u nas znajdziesz coś dla siebie.
 </p>
 
 </section>
 
-<section id="offer">
-<h2>Oferta</h2>
-
-<div class="grid">
-<div class="card">Paintball dla grup</div>
-<div class="card">Imprezy firmowe</div>
-<div class="card">Kawalerskie</div>
-<div class="card">Urodziny</div>
-<div class="card">Gel Blaster</div>
-<div class="card">Eventy</div>
-</div>
-
-</section>
-
-<section id="price">
+<section id="cennik" class="fade">
 <h2>Cennik</h2>
 
 <div class="grid">
@@ -207,7 +191,7 @@ Stawiamy na jakość, profesjonalizm i klimat, który sprawia, że nasi klienci 
 
 </section>
 
-<section id="gallery">
+<section id="galeria" class="fade">
 <h2>Galeria</h2>
 
 <div class="grid gallery">
@@ -218,30 +202,52 @@ Stawiamy na jakość, profesjonalizm i klimat, który sprawia, że nasi klienci 
 
 </section>
 
-<section id="contact">
-<h2>Rezerwacja</h2>
+<section class="fade">
+<h2>FAQ</h2>
 
-<div class="grid">
-
-<div>
-<form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
-<input type="text" placeholder="Imię" required>
-<input type="tel" placeholder="Telefon" required>
-<textarea placeholder="Termin"></textarea>
-<button>Wyślij</button>
-</form>
+<div class="faq-item">
+Jak długo trwa gra?
+<div class="faq-answer">1-2 godziny</div>
 </div>
 
-<div class="calendar">
-<h3>Dostępność</h3>
-<p>Pon–Pt: 10:00 – 20:00</p>
-<p>Sob–Nd: 9:00 – 22:00</p>
-<p>Rezerwacja telefoniczna lub przez formularz</p>
-</div>
-
+<div class="faq-item">
+Czy jest bezpiecznie?
+<div class="faq-answer">Tak, pełne zabezpieczenie</div>
 </div>
 
 </section>
+
+<section id="kontakt" class="fade">
+<h2>Rezerwacja</h2>
+
+<form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
+<input type="text" placeholder="Imię">
+<input type="tel" placeholder="Telefon">
+<textarea placeholder="Termin"></textarea>
+<button>Wyślij</button>
+</form>
+
+<iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&z=15&output=embed"></iframe>
+
+</section>
+
+<script>
+const faders=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+faders.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add('show');
+}
+});
+});
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+item.onclick=()=>{
+let ans=item.querySelector('.faq-answer');
+ans.style.display=ans.style.display==='block'?'none':'block';
+}
+});
+</script>
 
 </body>
 </html>
