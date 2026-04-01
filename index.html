@@ -30,24 +30,28 @@ nav {
   top: 0;
   background: rgba(0,0,0,0.9);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
   padding: 15px 40px;
   z-index: 9999;
 }
 
 .nav-left {
-  display: flex;
-  align-items: center;
+  position: absolute;
+  left: 20px;
 }
 
 .nav-logo {
-  width: 55px;
+  width: 80px;
 }
 
 .nav-links {
   display: flex;
   gap: 30px;
+}
+
+.nav-links a {
+  letter-spacing: 1px;
 }
 
 nav a {
@@ -87,12 +91,18 @@ header {
   text-align: center;
 }
 
+header div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .hero-logo {
-  width: 250px;
-  max-width: 80%;
+  width: 350px;
+  max-width: 90%;
   height: auto;
-  margin-bottom: 30px;
-  filter: drop-shadow(0 0 20px rgba(76,175,80,0.5));
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 25px rgba(76,175,80,0.6));
   transition: 0.3s;
 }
 
@@ -103,7 +113,7 @@ header {
 /* BUTTON */
 
 .btn {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 12px 25px;
   background: linear-gradient(45deg, #4CAF50, #2e7d32);
   color: white;
@@ -240,6 +250,8 @@ iframe {
   margin-top: 20px;
   border: none;
 }
+
+/* FOOTER */
 
 footer {
   padding:40px;
