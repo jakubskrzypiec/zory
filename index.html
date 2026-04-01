@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
@@ -12,7 +13,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #0a0a0a, #1c1c1c, #0a0a0a);
+  background: linear-gradient(180deg,#050505 0%,#0d0d0d 30%,#111 60%,#050505 100%);
   color: #eee;
 }
 
@@ -28,11 +29,13 @@ nav {
   gap: 40px;
   padding: 20px;
   z-index: 9999;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: #ccc;
   text-decoration: none;
+  transition: 0.3s;
 }
 
 nav a:hover {
@@ -69,15 +72,29 @@ header {
 header h1 {
   font-size: 60px;
   margin: 0;
+  letter-spacing: 2px;
 }
+
+header p {
+  font-size: 20px;
+  color: #ccc;
+}
+
+/* BUTTON */
 
 .btn {
   margin-top: 20px;
   padding: 12px 25px;
-  background: #4CAF50;
+  background: linear-gradient(45deg, #4CAF50, #2e7d32);
   color: white;
   border-radius: 25px;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(76,175,80,0.6);
 }
 
 /* SEKCJE */
@@ -85,19 +102,21 @@ header h1 {
 section {
   padding: 100px 20px;
   text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.2));
 }
 
 /* ANIMACJA */
 
 .fade {
   opacity: 0;
-  transform: translateY(30px);
-  transition: 0.6s;
+  transform: translateY(40px) scale(0.98);
+  transition: 0.8s ease;
 }
 
 .fade.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* O NAS */
@@ -119,6 +138,12 @@ section {
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
+  transition: 0.4s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.team img:hover {
+  transform: scale(1.05);
 }
 
 /* STATY */
@@ -126,15 +151,29 @@ section {
 .stats {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 30px;
-  color: #4CAF50;
-  font-size: 28px;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
 }
 
-.stats div span {
+.stats div {
+  background: rgba(255,255,255,0.03);
+  padding: 20px 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(76,175,80,0.2);
+  transition: 0.3s;
+  font-size: 28px;
+  color: #4CAF50;
+}
+
+.stats div:hover {
+  transform: translateY(-5px);
+  border-color: #4CAF50;
+}
+
+.stats span {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   color: #aaa;
   margin-top: 5px;
 }
@@ -148,9 +187,16 @@ section {
 }
 
 .feature {
-  background: #1a1a1a;
+  background: rgba(255,255,255,0.03);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  border-color: #4CAF50;
 }
 
 /* CENNIK */
@@ -159,6 +205,9 @@ section {
   max-width: 600px;
   margin: auto;
   text-align: left;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .price h3 {
@@ -183,6 +232,12 @@ section {
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
+  transition: 0.4s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
 }
 
 /* OPINIE */
@@ -227,7 +282,15 @@ iframe {
   border: none;
 }
 
+footer {
+  padding:40px;
+  text-align:center;
+  color:#777;
+  font-size:14px;
+}
+
 </style>
+
 </head>
 
 <body>
@@ -254,13 +317,7 @@ iframe {
 <section id="onas" class="fade about">
 <h2>O nas</h2>
 
-<p>Jesteśmy pasjonatami paintballa sportowego, którzy od lat rozwijają swoje umiejętności i zdobywają doświadczenie zarówno na arenie krajowej, jak i międzynarodowej.</p>
-
-<p>Nasza drużyna bierze udział w najwyższych ligach w Europie oraz w Polsce, co pozwala nam przenosić profesjonalne doświadczenie na organizowane przez nas rozgrywki.</p>
-
-<p>Jeden z naszych instruktorów zdobył 2 miejsce U19 we Francji reprezentując Polskę.</p>
-
-<p>Organizujemy gry dla grup znajomych, firm oraz klientów indywidualnych. Gwarantujemy emocje, bezpieczeństwo i świetną atmosferę.</p>
+<p>Jesteśmy pasjonatami paintballa sportowego...</p>
 
 <div class="team">
 <img src="team1.png">
@@ -268,15 +325,9 @@ iframe {
 </div>
 
 <div class="stats">
-<div>
-1000+<br><span>rozegranych gier</span>
-</div>
-<div>
-5000+<br><span>zadowolonych klientów</span>
-</div>
-<div>
-5+<br><span>lat doświadczenia</span>
-</div>
+<div>1000+<span>rozegranych gier</span></div>
+<div>5000+<span>zadowolonych klientów</span></div>
+<div>5+<span>lat doświadczenia</span></div>
 </div>
 
 </section>
@@ -295,20 +346,22 @@ iframe {
 <h2>Cennik</h2>
 
 <div class="price">
-<h3>Paintball</h3>
-<p>100 zł – 500 kulek</p>
-<p>35 zł – 100 kulek</p>
-
-<h3>.50 CAL</h3>
-<p>70 zł – 500 kulek</p>
-<p>35 zł – 100 kulek</p>
 
 <h3>Gel Blaster</h3>
-<p>50 zł / godzina</p>
-<p>30 zł / 30 min</p>
+<p>60 zł – godzina</p>
 
-<h3>Ognisko</h3>
-<p>150 zł</p>
+<h3>Paintball</h3>
+<p>50 zł – 100 kul (pakiet podstawowy)</p>
+<p>120 zł – 500 kul (pakiet extreme)</p>
+
+<h3>.50 CAL</h3>
+<p>50 zł – ~200 kul (pakiet basic)</p>
+<p>120 zł – 500 kul (pakiet extreme)</p>
+
+<h3>Dodatki</h3>
+<p>200 zł – ognisko</p>
+<p>35 zł – kiełbaska z grilla</p>
+
 </div>
 
 </section>
@@ -329,8 +382,6 @@ iframe {
 
 <div class="review">⭐️⭐️⭐️⭐️⭐️ Mega klimat!</div>
 <div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball w Żorach</div>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Świetna zabawa</div>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Na pewno wrócimy</div>
 
 </section>
 
@@ -348,6 +399,10 @@ iframe {
 <iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&t=&z=15&output=embed"></iframe>
 
 </section>
+
+<footer>
+Paintball Żory © 2026
+</footer>
 
 <script>
 const faders = document.querySelectorAll('.fade');
