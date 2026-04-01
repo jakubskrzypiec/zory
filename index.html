@@ -302,23 +302,26 @@ footer {
 </a>
 
 <nav>
-<a href="#onas">O NAS</a>
-<a href="#cennik">CENNIK</a>
-<a href="#galeria">GALERIA</a>
-<a href="#kontakt">KONTAKT</a>
-</nav>
+<div class="nav-left">
+  <img src="logo.png" class="nav-logo">
+</div>
 
+<div class="nav-links">
+  <a href="#onas">O NAS</a>
+  <a href="#cennik">CENNIK</a>
+  <a href="#galeria">GALERIA</a>
+  <a href="#kontakt">KONTAKT</a>
+</div>
+</nav>
 <header>
 <div>
 
-<img src="logo.png.png" alt="Paintball Żory" class="logo">
+<img src="logo.png" alt="Paintball Żory" class="hero-logo">
 
-<p>Adrenalina • Rywalizacja • Emocje</p>
 <a href="#kontakt" class="btn">Zarezerwuj</a>
 
 </div>
 </header>
-
 <section id="onas" class="fade about">
 <h2>O nas</h2>
 
@@ -433,3 +436,43 @@ faders.forEach(el => observer.observe(el));
 
 </body>
 </html>
+/* NAV ULEPSZENIE */
+
+nav {
+  justify-content: space-between;
+  padding: 15px 40px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-logo {
+  width: 60px;
+  transition: 0.3s;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1);
+}
+
+/* HERO LOGO */
+
+.hero-logo {
+  width: 250px;
+  max-width: 80%;
+  margin-bottom: 30px;
+  transition: 0.4s;
+  filter: drop-shadow(0 0 20px rgba(76,175,80,0.5));
+}
+
+.hero-logo:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 30px rgba(76,175,80,0.8));
+}
