@@ -7,18 +7,16 @@
 <title>Paintball Żory</title>
 
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:Arial;
 background:#0b0f0c;
 color:white;
-overflow-x:hidden;
+line-height:1.6;
 }
 
 /* NAV */
-
 nav{
 position:fixed;
 width:100%;
@@ -26,41 +24,29 @@ top:0;
 display:flex;
 justify-content:space-between;
 padding:20px 40px;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.7);
 z-index:1000;
 }
 
-nav a{
-color:#ccc;
-margin-left:20px;
-text-decoration:none;
-}
+nav a{color:#ccc;margin-left:20px;text-decoration:none;}
 
 /* HERO */
-
 .hero{
 height:100vh;
 display:flex;
 align-items:center;
-justify-content:center;
-text-align:center;
+padding:0 10%;
 background:
 linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
 url('background.png');
 background-size:cover;
 }
 
-.hero h1{
-font-size:80px;
-}
-
-.hero p{
-color:#aaa;
-margin:20px 0;
-}
+.hero h1{font-size:80px;}
 
 .btn{
+display:inline-block;
+margin-top:20px;
 padding:15px 30px;
 background:#4CAF50;
 border-radius:30px;
@@ -68,8 +54,7 @@ color:white;
 text-decoration:none;
 }
 
-/* STICKY CTA */
-
+/* CTA */
 .cta{
 position:fixed;
 bottom:20px;
@@ -81,13 +66,9 @@ z-index:999;
 }
 
 /* SEKCJE */
-
-section{
-padding:120px 10%;
-}
+section{padding:120px 10%;}
 
 /* GRID */
-
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -95,20 +76,13 @@ gap:30px;
 }
 
 /* CARD */
-
 .card{
 background:#111;
 padding:30px;
 border-radius:12px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
 }
 
 /* STATY */
-
 .stats{
 display:flex;
 gap:40px;
@@ -121,7 +95,6 @@ color:#4CAF50;
 }
 
 /* GALERIA */
-
 .gallery img{
 width:100%;
 height:250px;
@@ -130,39 +103,22 @@ border-radius:10px;
 cursor:pointer;
 }
 
-/* LIGHTBOX */
-
-.lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-display:none;
-justify-content:center;
-align-items:center;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
-}
-
 /* FAQ */
-
 .faq-item{
-margin-bottom:15px;
+margin-bottom:20px;
+padding:15px;
+background:#111;
+border-radius:10px;
 cursor:pointer;
 }
 
 .faq-answer{
 display:none;
 color:#aaa;
+margin-top:10px;
 }
 
 /* FORM */
-
 input,textarea{
 width:100%;
 padding:10px;
@@ -190,6 +146,7 @@ color:white;
 <a href="#about">O nas</a>
 <a href="#offer">Oferta</a>
 <a href="#price">Cennik</a>
+<a href="#faq">FAQ</a>
 <a href="#contact">Kontakt</a>
 </div>
 </nav>
@@ -197,8 +154,8 @@ color:white;
 <section class="hero">
 <div>
 <h1>Paintball Żory</h1>
-<p>Najlepsze pole paintballowe w regionie</p>
-<a href="#contact" class="btn">Zarezerwuj</a>
+<p>Adrenalina • Emocje • Prawdziwa rywalizacja</p>
+<a href="#contact" class="btn">Zarezerwuj grę</a>
 </div>
 </section>
 
@@ -206,7 +163,15 @@ color:white;
 <h2>O nas</h2>
 
 <p>
-Tworzymy profesjonalne rozgrywki paintballowe...
+Jesteśmy pasjonatami paintballa sportowego, którzy od lat rozwijają swoje umiejętności w Polsce oraz na arenie międzynarodowej. Nasza działalność opiera się na doświadczeniu zdobytym podczas udziału w profesjonalnych rozgrywkach, gdzie liczy się strategia, szybkość działania oraz współpraca zespołowa. Dzięki temu jesteśmy w stanie zapewnić naszym klientom nie tylko świetną zabawę, ale również autentyczne doświadczenie gry na wysokim poziomie.
+</p>
+
+<p>
+Organizujemy rozgrywki dla grup znajomych, firm, klientów indywidualnych oraz wszystkich tych, którzy chcą przeżyć coś więcej niż zwykłą rozrywkę. Każda gra jest starannie zaplanowana, aby dostarczyć maksymalnych emocji, jednocześnie zachowując pełne bezpieczeństwo uczestników. Nasze pole gry zostało przygotowane w taki sposób, aby umożliwić różnorodne scenariusze — od klasycznych starć po bardziej zaawansowane rozgrywki taktyczne.
+</p>
+
+<p>
+Naszym celem jest stworzenie miejsca, do którego chce się wracać. Dbamy o klimat, atmosferę oraz jakość obsługi, co sprawia, że każda rozgrywka staje się niezapomnianym doświadczeniem. Niezależnie od tego, czy jesteś początkującym graczem, czy masz już doświadczenie — u nas znajdziesz coś dla siebie.
 </p>
 
 <div class="stats">
@@ -221,10 +186,62 @@ Tworzymy profesjonalne rozgrywki paintballowe...
 <h2>Oferta</h2>
 
 <div class="grid">
-<div class="card">Paintball</div>
+<div class="card">Paintball dla grup znajomych</div>
+<div class="card">Imprezy firmowe</div>
+<div class="card">Wieczory kawalerskie</div>
+<div class="card">Urodziny</div>
 <div class="card">Gel Blaster</div>
-<div class="card">Firmy</div>
-<div class="card">Kawalerskie</div>
+<div class="card">Eventy specjalne</div>
+</div>
+
+</section>
+
+<section id="price">
+<h2>Cennik</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Paintball</h3>
+<p>100 kul – 50 zł</p>
+<p>500 kul – 120 zł</p>
+</div>
+
+<div class="card">
+<h3>.50 CAL</h3>
+<p>200 kul – 50 zł</p>
+<p>500 kul – 120 zł</p>
+</div>
+
+<div class="card">
+<h3>Gel Blaster</h3>
+<p>60 zł / godzina</p>
+</div>
+
+<div class="card">
+<h3>Dodatki</h3>
+<p>Ognisko – 200 zł</p>
+<p>Kiełbaska – 35 zł</p>
+</div>
+</div>
+
+</section>
+
+<section id="faq">
+<h2>FAQ</h2>
+
+<div class="faq-item">
+<p>Jak długo trwa gra?</p>
+<div class="faq-answer">Standardowa rozgrywka trwa od 1 do 2 godzin.</div>
+</div>
+
+<div class="faq-item">
+<p>Czy paintball jest bezpieczny?</p>
+<div class="faq-answer">Tak, zapewniamy pełne wyposażenie ochronne.</div>
+</div>
+
+<div class="faq-item">
+<p>Czy trzeba mieć doświadczenie?</p>
+<div class="faq-answer">Nie, wszystko tłumaczymy na miejscu.</div>
 </div>
 
 </section>
@@ -237,24 +254,6 @@ Tworzymy profesjonalne rozgrywki paintballowe...
 <img src="image2.png">
 <img src="image3.png">
 </div>
-</section>
-
-<div class="lightbox" id="lightbox">
-<img src="" id="lightbox-img">
-</div>
-
-<section id="faq">
-<h2>FAQ</h2>
-
-<div class="faq-item">
-<p>Jak długo trwa gra?</p>
-<div class="faq-answer">Około 1-2h</div>
-</div>
-
-<div class="faq-item">
-<p>Czy jest bezpiecznie?</p>
-<div class="faq-answer">Tak, pełne zabezpieczenie</div>
-</div>
 
 </section>
 
@@ -262,10 +261,10 @@ Tworzymy profesjonalne rozgrywki paintballowe...
 <h2>Rezerwacja</h2>
 
 <form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
-<input type="text" name="name" placeholder="Imię">
-<input type="tel" name="phone" placeholder="Telefon">
-<textarea name="message"></textarea>
-<button>Wyślij</button>
+<input type="text" name="name" placeholder="Imię" required>
+<input type="tel" name="phone" placeholder="Telefon" required>
+<textarea name="message" placeholder="Termin"></textarea>
+<button type="submit">Wyślij</button>
 </form>
 
 </section>
@@ -273,7 +272,6 @@ Tworzymy profesjonalne rozgrywki paintballowe...
 <script>
 
 /* LICZNIKI */
-
 document.querySelectorAll('.stat').forEach(el=>{
 let target=+el.dataset.target;
 let count=0;
@@ -290,21 +288,7 @@ el.innerText=target;
 update();
 });
 
-/* LIGHTBOX */
-
-document.querySelectorAll('.gallery img').forEach(img=>{
-img.onclick=()=>{
-document.getElementById('lightbox').style.display='flex';
-document.getElementById('lightbox-img').src=img.src;
-}
-});
-
-document.getElementById('lightbox').onclick=()=>{
-document.getElementById('lightbox').style.display='none';
-}
-
 /* FAQ */
-
 document.querySelectorAll('.faq-item').forEach(item=>{
 item.onclick=()=>{
 let ans=item.querySelector('.faq-answer');
