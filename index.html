@@ -12,7 +12,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #0a0a0a, #1c1c1c, #0a0a0a);
+  background: radial-gradient(circle at top, #1c1c1c, #0a0a0a);
   color: #eee;
 }
 
@@ -22,7 +22,7 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.85);
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -35,9 +35,7 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover {
-  color: #4CAF50;
-}
+nav a:hover { color: #4CAF50; }
 
 /* FACEBOOK */
 
@@ -48,9 +46,7 @@ nav a:hover {
   z-index: 10000;
 }
 
-.fb img {
-  width: 30px;
-}
+.fb img { width: 30px; }
 
 /* HERO */
 
@@ -66,10 +62,7 @@ header {
   text-align: center;
 }
 
-header h1 {
-  font-size: 60px;
-  margin: 0;
-}
+header h1 { font-size: 60px; }
 
 .btn {
   margin-top: 20px;
@@ -91,8 +84,8 @@ section {
 
 .fade {
   opacity: 0;
-  transform: translateY(30px);
-  transition: 0.6s;
+  transform: translateY(40px);
+  transition: 0.7s;
 }
 
 .fade.show {
@@ -121,22 +114,36 @@ section {
   border-radius: 10px;
 }
 
-/* STATY */
+/* STATY PREMIUM */
 
 .stats {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 30px;
-  color: #4CAF50;
-  font-size: 28px;
+  gap: 30px;
+  margin-top: 40px;
 }
 
-.stats div span {
-  display: block;
-  font-size: 14px;
+.stat-box {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 150px;
+  transition: 0.3s;
+}
+
+.stat-box:hover {
+  transform: translateY(-10px);
+  background: #222;
+}
+
+.stat-box h3 {
+  color: #4CAF50;
+  margin: 0;
+}
+
+.stat-box p {
+  font-size: 13px;
   color: #aaa;
-  margin-top: 5px;
 }
 
 /* FEATURES */
@@ -161,9 +168,7 @@ section {
   text-align: left;
 }
 
-.price h3 {
-  color: #4CAF50;
-}
+.price h3 { color: #4CAF50; }
 
 .price p {
   border-bottom: 1px solid #333;
@@ -215,7 +220,6 @@ button {
   color: white;
   padding: 12px;
   border: none;
-  cursor: pointer;
 }
 
 /* MAPA */
@@ -254,13 +258,7 @@ iframe {
 <section id="onas" class="fade about">
 <h2>O nas</h2>
 
-<p>Jesteśmy pasjonatami paintballa sportowego, którzy od lat rozwijają swoje umiejętności i zdobywają doświadczenie zarówno na arenie krajowej, jak i międzynarodowej.</p>
-
-<p>Nasza drużyna bierze udział w najwyższych ligach w Europie oraz w Polsce, co pozwala nam przenosić profesjonalne doświadczenie na organizowane przez nas rozgrywki.</p>
-
-<p>Jeden z naszych instruktorów zdobył 2 miejsce U19 we Francji reprezentując Polskę.</p>
-
-<p>Organizujemy gry dla grup znajomych, firm oraz klientów indywidualnych. Gwarantujemy emocje, bezpieczeństwo i świetną atmosferę.</p>
+<p>Jesteśmy pasjonatami paintballa sportowego...</p>
 
 <div class="team">
 <img src="team1.png">
@@ -268,14 +266,17 @@ iframe {
 </div>
 
 <div class="stats">
-<div>
-1000+<br><span>rozegranych gier</span>
+<div class="stat-box">
+<h3>1000+</h3>
+<p>rozegranych gier</p>
 </div>
-<div>
-5000+<br><span>zadowolonych klientów</span>
+<div class="stat-box">
+<h3>5000+</h3>
+<p>klientów</p>
 </div>
-<div>
-5+<br><span>lat doświadczenia</span>
+<div class="stat-box">
+<h3>5+</h3>
+<p>lat doświadczenia</p>
 </div>
 </div>
 
@@ -296,19 +297,19 @@ iframe {
 
 <div class="price">
 <h3>Paintball</h3>
-<p>100 zł – 500 kulek</p>
-<p>35 zł – 100 kulek</p>
+<p>100 kul – 50 zł (pakiet podstawowy)</p>
+<p>500 kul – 120 zł (pakiet extreme)</p>
 
 <h3>.50 CAL</h3>
-<p>70 zł – 500 kulek</p>
-<p>35 zł – 100 kulek</p>
+<p>magazynek ~200 kul – 50 zł (basic)</p>
+<p>500 kul – 120 zł (extreme)</p>
 
 <h3>Gel Blaster</h3>
-<p>50 zł / godzina</p>
-<p>30 zł / 30 min</p>
+<p>60 zł / godzina</p>
 
 <h3>Ognisko</h3>
-<p>150 zł</p>
+<p>200 zł</p>
+<p>Kiełbaska z grilla – 35 zł / porcja</p>
 </div>
 
 </section>
@@ -328,9 +329,8 @@ iframe {
 <h2>Opinie</h2>
 
 <div class="review">⭐️⭐️⭐️⭐️⭐️ Mega klimat!</div>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball w Żorach</div>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Świetna zabawa</div>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Na pewno wrócimy</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Polecam</div>
 
 </section>
 
@@ -345,7 +345,7 @@ iframe {
 <button type="submit">Wyślij</button>
 </form>
 
-<iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&t=&z=15&output=embed"></iframe>
+<iframe src="https://maps.google.com/maps?q=Kolejowa%2043,%2044-240%20Żory&t=&z=15&output=embed"></iframe>
 
 </section>
 
