@@ -6,172 +6,150 @@
 <title>Paintball Żory</title>
 
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
 
-body {
-  font-family: Arial, sans-serif;
-  background:#0b0f0c;
-  color:#fff;
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:Arial;
+background:#f5f5f5;
+color:#111;
 }
 
 /* NAV */
 
-nav {
-  position:fixed;
-  width:100%;
-  top:0;
-  display:flex;
-  justify-content:space-between;
-  padding:20px 40px;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+z-index:1000;
 }
 
-nav a {
-  color:#ddd;
-  margin-left:20px;
-  text-decoration:none;
+nav a{
+color:#333;
+margin-left:20px;
+text-decoration:none;
 }
 
 /* HERO */
 
-.hero {
-  height:100vh;
-  display:flex;
-  align-items:center;
-  padding:0 10%;
-  background:
-  linear-gradient(to right, rgba(0,0,0,0.8), transparent),
-  url('background.png');
-  background-size:cover;
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+padding:0 10%;
+background:
+linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.9)),
+url('background.png');
+background-size:cover;
 }
 
-.hero h1 {
-  font-size:70px;
+.hero h1{
+font-size:60px;
 }
 
-.hero p {
-  margin:20px 0;
-  color:#ccc;
-}
-
-.btn {
-  padding:15px 30px;
-  background:#4CAF50;
-  border-radius:30px;
-  color:#fff;
-  text-decoration:none;
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:15px 30px;
+background:#111;
+color:white;
+border-radius:30px;
+text-decoration:none;
 }
 
 /* SEKCJE */
 
-section {
-  padding:120px 10%;
+section{
+padding:100px 10%;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* KAFELKI */
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
 /* O NAS */
 
-.about {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
 }
 
-.about img {
-  width:100%;
-  border-radius:10px;
+.about img{
+width:100%;
+border-radius:10px;
 }
 
 /* STATY */
 
-.stats {
-  display:flex;
-  gap:40px;
-  margin-top:30px;
+.stats{
+display:flex;
+gap:40px;
+margin-top:30px;
 }
 
-.stats div {
-  font-size:28px;
-  color:#4CAF50;
-}
-
-/* PAS */
-
-.band {
-  background:#111;
-  text-align:center;
-  padding:60px;
-}
-
-/* CENNIK */
-
-.price {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.price-box {
-  background:#121712;
-  padding:30px;
-  border-radius:10px;
-}
-
-.price-box h3 {
-  color:#4CAF50;
+.stats div{
+font-size:30px;
 }
 
 /* GALERIA */
 
-.gallery {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.gallery img {
-  width:100%;
-  height:250px;
-  object-fit:cover;
-  border-radius:10px;
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
 }
 
 /* KONTAKT */
 
-.contact {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
+.contact{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
 }
 
-input, textarea {
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-  border:none;
-  border-radius:5px;
+input,textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
 }
 
-button {
-  padding:12px;
-  background:#4CAF50;
-  border:none;
-  color:white;
+button{
+padding:12px;
+background:black;
+color:white;
+border:none;
 }
 
-/* MAPA */
-
-iframe {
-  width:100%;
-  height:300px;
-  border:none;
+iframe{
+width:100%;
+height:300px;
+border:none;
 }
 
-footer {
-  text-align:center;
-  padding:40px;
-  color:#777;
+footer{
+text-align:center;
+padding:40px;
+color:#777;
 }
 
 </style>
@@ -183,6 +161,7 @@ footer {
 <div><b>Paintball Żory</b></div>
 <div>
 <a href="#about">O nas</a>
+<a href="#offer">Oferta</a>
 <a href="#price">Cennik</a>
 <a href="#gallery">Galeria</a>
 <a href="#contact">Kontakt</a>
@@ -192,8 +171,8 @@ footer {
 <section class="hero">
 <div>
 <h1>Paintball Żory</h1>
-<p>Adrenalina • Rywalizacja • Emocje</p>
-<a href="#contact" class="btn">Zarezerwuj</a>
+<p>Profesjonalne rozgrywki • Emocje • Adrenalina</p>
+<a href="#contact" class="btn">Zarezerwuj grę</a>
 </div>
 </section>
 
@@ -201,8 +180,8 @@ footer {
 <div>
 <h2>O nas</h2>
 <p>
-Jesteśmy pasjonatami paintballa sportowego, którzy biorą udział w rozgrywkach
-w Polsce i Europie. Organizujemy profesjonalne gry dla grup i firm.
+Jesteśmy drużyną pasjonatów paintballa sportowego, którzy biorą udział w ligach w Polsce i Europie.
+Organizujemy profesjonalne rozgrywki dla każdego – od początkujących po zaawansowanych.
 </p>
 
 <div class="stats">
@@ -216,33 +195,67 @@ w Polsce i Europie. Organizujemy profesjonalne gry dla grup i firm.
 <img src="team1.png">
 </section>
 
-<section class="band">
-<h2>Profesjonalne rozgrywki • Sprzęt • Emocje</h2>
+<section id="offer">
+<h2>Oferta</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>🎯 Paintball</h3>
+<p>Dynamiczne rozgrywki dla grup znajomych i firm.</p>
+</div>
+
+<div class="card">
+<h3>🔥 Gel Blaster</h3>
+<p>Bezpieczna i szybka forma zabawy dla każdego.</p>
+</div>
+
+<div class="card">
+<h3>💼 Imprezy firmowe</h3>
+<p>Integracja zespołu w wyjątkowym stylu.</p>
+</div>
+
+<div class="card">
+<h3>🎉 Wieczory kawalerskie</h3>
+<p>Niezapomniane emocje przed wielkim dniem.</p>
+</div>
+
+<div class="card">
+<h3>🎂 Urodziny</h3>
+<p>Idealna atrakcja dla młodszych i starszych.</p>
+</div>
+
+<div class="card">
+<h3>🔥 Eventy specjalne</h3>
+<p>Organizacja wydarzeń na większą skalę.</p>
+</div>
+
+</div>
 </section>
 
 <section id="price">
 <h2>Cennik</h2>
 
-<div class="price">
+<div class="grid">
 
-<div class="price-box">
+<div class="card">
 <h3>Paintball</h3>
 <p>100 kul – 50 zł</p>
 <p>500 kul – 120 zł</p>
 </div>
 
-<div class="price-box">
+<div class="card">
 <h3>.50 CAL</h3>
 <p>200 kul – 50 zł</p>
 <p>500 kul – 120 zł</p>
 </div>
 
-<div class="price-box">
+<div class="card">
 <h3>Gel Blaster</h3>
 <p>60 zł / godzina</p>
 </div>
 
-<div class="price-box">
+<div class="card">
 <h3>Dodatki</h3>
 <p>Ognisko – 200 zł</p>
 <p>Kiełbaska – 35 zł</p>
@@ -254,14 +267,30 @@ w Polsce i Europie. Organizujemy profesjonalne gry dla grup i firm.
 <section id="gallery">
 <h2>Galeria</h2>
 
-<div class="gallery">
+<div class="grid gallery">
 <img src="image1.png">
 <img src="image2.png">
 <img src="image3.png">
 </div>
 </section>
 
+<section>
+<h2>Dlaczego my?</h2>
+
+<div class="grid">
+
+<div class="card">Profesjonalny sprzęt</div>
+<div class="card">Doświadczeni instruktorzy</div>
+<div class="card">Bezpieczeństwo</div>
+<div class="card">Świetna lokalizacja</div>
+<div class="card">Mega klimat</div>
+<div class="card">Setki zadowolonych klientów</div>
+
+</div>
+</section>
+
 <section id="contact" class="contact">
+
 <div>
 <h2>Rezerwacja</h2>
 
@@ -271,7 +300,6 @@ w Polsce i Europie. Organizujemy profesjonalne gry dla grup i firm.
 <textarea name="message" placeholder="Termin"></textarea>
 <button type="submit">Wyślij</button>
 </form>
-
 </div>
 
 <div>
@@ -280,6 +308,7 @@ w Polsce i Europie. Organizujemy profesjonalne gry dla grup i firm.
 
 <iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&z=15&output=embed"></iframe>
 </div>
+
 </section>
 
 <footer>
