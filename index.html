@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head> 
+<head>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,13 +24,12 @@ nav {
   width: 100%;
   top: 0;
   background: white;
-  border-bottom: 1px solid #ddd;
   display: flex;
   justify-content: center;
   gap: 40px;
   padding: 20px;
   z-index: 9999;
-  flex-wrap: wrap;
+  border-bottom: 1px solid #ddd;
 }
 
 nav a {
@@ -49,7 +48,6 @@ nav a:hover {
   position: fixed;
   top: 15px;
   right: 15px;
-  z-index: 10000;
 }
 
 .fb img {
@@ -60,8 +58,7 @@ nav a:hover {
 
 header {
   height: 100vh;
-  background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-  url('background.png');
+  background: url('background.png');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -70,12 +67,25 @@ header {
   text-align: center;
 }
 
+.hero-logo {
+  width: 500px;
+  max-width: 95%;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(76,175,80,0.4));
+  transition: 0.4s;
+}
+
+.hero-logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 40px rgba(76,175,80,0.7));
+}
+
 /* BUTTON */
 
 .btn {
   margin-top: 20px;
   padding: 12px 25px;
-  background: linear-gradient(45deg, #4CAF50, #2e7d32);
+  background: #4CAF50;
   color: white;
   border-radius: 25px;
   text-decoration: none;
@@ -84,7 +94,6 @@ header {
 
 .btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(76,175,80,0.6);
 }
 
 /* SEKCJE */
@@ -93,20 +102,20 @@ section {
   padding: 100px 20px;
   text-align: center;
   background: white;
-  border-bottom: 1px solid #eee;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
 /* ANIMACJA */
 
 .fade {
   opacity: 0;
-  transform: translateY(40px) scale(0.98);
+  transform: translateY(40px);
   transition: 0.8s ease;
 }
 
 .fade.show {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 /* O NAS */
@@ -130,7 +139,6 @@ section {
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* STATY */
@@ -152,14 +160,13 @@ section {
   color: #4CAF50;
 }
 
-.stats span {
-  display: block;
-  font-size: 13px;
-  color: #777;
-  margin-top: 5px;
-}
-
 /* FEATURES */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
 
 .feature {
   background: white;
@@ -184,58 +191,71 @@ section {
   color: #4CAF50;
 }
 
-.price p {
-  border-bottom: 1px solid #eee;
-  padding: 8px 0;
-}
-
 /* GALERIA */
 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
 .gallery img {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* OPINIE */
 
 .review {
-  background: #f0f0f0;
+  background: white;
   padding: 20px;
   border-radius: 10px;
+  margin: 10px auto;
+  max-width: 600px;
+  border: 1px solid #ddd;
 }
 
 /* FORM */
 
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 input, textarea {
-  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-/* LOGO */
+/* MAPA */
 
-.hero-logo {
-  width: 500px;
-  max-width: 95%;
-  height: auto;
-  margin-bottom: 20px;
+iframe {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  margin: 20px auto 0;
   display: block;
-  filter: drop-shadow(0 0 20px rgba(76,175,80,0.4));
-  transition: 0.4s ease;
+  border-radius: 10px;
 }
 
-.hero-logo:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 40px rgba(76,175,80,0.7));
-}
+/* FOOTER */
 
 footer {
   padding:40px;
   text-align:center;
   color:#777;
-  background: white;
+  font-size:14px;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -302,6 +322,10 @@ Zbierz ekipę i sprawdź kto naprawdę rządzi 💥
 <p>50 zł – 100 kul</p>
 <p>120 zł – 500 kul</p>
 
+<h3>.50 CAL</h3>
+<p>50 zł – ~200 kul</p>
+<p>120 zł – 500 kul</p>
+
 <h3>Dodatki</h3>
 <p>200 zł – ognisko</p>
 <p>35 zł – kiełbaska</p>
@@ -311,11 +335,13 @@ Zbierz ekipę i sprawdź kto naprawdę rządzi 💥
 
 <section id="galeria" class="fade">
 <h2>Galeria</h2>
+
 <div class="gallery">
 <img src="image1.png">
 <img src="image2.png">
 <img src="image3.png">
 </div>
+
 </section>
 
 <section class="fade">
