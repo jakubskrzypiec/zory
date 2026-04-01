@@ -292,7 +292,23 @@ footer {
   color:#777;
   font-size:14px;
 }
+.hero-logo {
+  width: 500px;
+  max-width: 95%;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
 
+  /* glow */
+  filter: drop-shadow(0 0 20px rgba(76,175,80,0.6));
+
+  transition: 0.4s ease;
+}
+
+.hero-logo:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 40px rgba(76,175,80,0.9));
+}
 </style>
 
 </head>
@@ -312,8 +328,7 @@ footer {
 
 <header>
 <div>
-<h1>Paintball Żory</h1>
-<p>Adrenalina • Rywalizacja • Emocje</p>
+<img src="logo.png" class="hero-logo">
 <a href="#kontakt" class="btn">Zarezerwuj</a>
 </div>
 </header>
