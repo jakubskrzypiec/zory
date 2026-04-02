@@ -301,6 +301,13 @@ header::after {
   position: relative;
   z-index: 2;
 }
+  @media (max-width: 768px) {
+  .fb {
+    bottom: 20px;
+    top: auto;
+    right: 10px;
+  }
+}
 </style>
 
 </head>
@@ -481,6 +488,13 @@ entry.target.classList.add('show');
 });
 faders.forEach(el => observer.observe(el));
 </script>
+<script>
+const video = document.querySelector(".bg-video");
 
+if (video) {
+  video.muted = true;
+  video.play().catch(() => {});
+}
+</script>
 </body>
 </html>
