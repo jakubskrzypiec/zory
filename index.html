@@ -68,6 +68,9 @@ header {
 .hero-logo {
   width: 500px;
   max-width: 95%;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
   filter: drop-shadow(0 0 20px rgba(76,175,80,0.6));
   transition: 0.4s ease;
 }
@@ -85,7 +88,7 @@ header {
   border-radius: 25px;
   text-decoration: none;
   transition: 0.3s;
-  display: inline-block;
+  display:inline-block;
 }
 
 .btn:hover {
@@ -93,56 +96,37 @@ header {
   box-shadow: 0 0 15px rgba(76,175,80,0.6);
 }
 
-/* SECTIONS */
+/* SEKCJE */
 section {
   padding: 100px 20px;
   text-align: center;
   border-top: 1px solid rgba(255,255,255,0.05);
   background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.2));
-  transition: 0.3s;
+  transition:0.3s;
 }
 
 section:hover {
   background: linear-gradient(180deg,rgba(76,175,80,0.05),rgba(0,0,0,0.3));
 }
 
-/* ANIM */
+/* ANIMACJA */
 .fade {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(40px) scale(0.98);
   transition: 0.8s ease;
 }
 
 .fade.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-/* GRID */
-.features, .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 20px;
+/* O NAS */
+.about {
+  max-width: 900px;
+  margin: auto;
 }
 
-.feature {
-  background: rgba(255,255,255,0.03);
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.05);
-}
-
-.gallery img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.gallery img:hover { transform: scale(1.05); }
-
-/* TEAM */
 .team {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -155,9 +139,13 @@ section:hover {
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
+  transition: 0.4s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* STATS */
+.team img:hover { transform: scale(1.05); }
+
+/* STATY */
 .stats {
   display: flex;
   justify-content: center;
@@ -167,8 +155,88 @@ section:hover {
 }
 
 .stats div {
+  background: rgba(255,255,255,0.03);
+  padding: 20px 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(76,175,80,0.2);
+  transition: 0.3s;
   font-size: 28px;
   color: #4CAF50;
+}
+
+.stats div:hover {
+  transform: translateY(-5px);
+  border-color: #4CAF50;
+}
+
+.stats span {
+  display: block;
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+
+.feature {
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  border-color: #4CAF50;
+}
+
+/* CENNIK */
+.price {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.price h3 { color: #4CAF50; }
+
+.price p {
+  border-bottom: 1px solid #333;
+  padding: 8px 0;
+}
+
+/* GALERIA */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.4s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.gallery img:hover { transform: scale(1.05); }
+
+/* OPINIE */
+.review {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 /* FORM */
@@ -194,6 +262,7 @@ button {
   cursor: pointer;
 }
 
+/* MAPA */
 iframe {
   width: 100%;
   height: 300px;
@@ -205,6 +274,7 @@ footer {
   padding:40px;
   text-align:center;
   color:#777;
+  font-size:14px;
 }
 </style>
 
@@ -231,20 +301,29 @@ footer {
 </div>
 </header>
 
+<!-- TRYBY -->
+
 <section id="tryby" class="fade">
 <h2>Tryby gry</h2>
 <div class="features">
 <div class="feature">🏴 Capture the Flag</div>
 <div class="feature">💣 Podkładanie bomby</div>
-<div class="feature">🧟 Zombie</div>
-<div class="feature">👑 VIP</div>
+<div class="feature">🧟 Zombie Mode</div>
+<div class="feature">👑 VIP Escort</div>
 </div>
 </section>
 
+<!-- JAK WYGLĄDA -->
+
 <section class="fade">
 <h2>Jak wygląda gra?</h2>
-<p>Rezerwujesz → przyjeżdżasz → instruktaż → gra 💥</p>
+<p>
+Rezerwujesz → przyjeżdżasz → szkolenie → gramy 💥<br><br>
+Pełna adrenalina i różne scenariusze!
+</p>
 </section>
+
+<!-- GALERIA -->
 
 <section id="galeria" class="fade">
 <h2>Galeria</h2>
@@ -258,15 +337,36 @@ footer {
 </div>
 </section>
 
+<!-- CENNIK -->
+
 <section id="cennik" class="fade">
 <h2>Cennik</h2>
-<p>Paintball od 50 zł</p>
+
+<div class="price">
+<h3>Gel Blaster</h3>
+<p>60 zł – godzina</p>
+
+<h3>Paintball</h3>
+<p>50 zł – 100 kul</p>
+<p>120 zł – 500 kul</p>
+
+<h3>.50 CAL</h3>
+<p>50 zł – ~200 kul</p>
+<p>120 zł – 500 kul</p>
+</div>
+
 <a href="#kontakt" class="btn">🔥 Zarezerwuj teraz</a>
+
 </section>
 
-<section id="onas" class="fade">
+<!-- O NAS -->
+
+<section id="onas" class="fade about">
 <h2>O nas</h2>
-<p>Ekipa pasjonatów paintballa 💥</p>
+
+<p>
+Jesteśmy ekipą pasjonatów paintballa z Żor 💥
+</p>
 
 <div class="team">
 <img src="team1.png">
@@ -274,11 +374,14 @@ footer {
 </div>
 
 <div class="stats">
-<div>1000+</div>
-<div>5000+</div>
-<div>5+</div>
+<div>1000+<span>gier</span></div>
+<div>5000+<span>klientów</span></div>
+<div>5+<span>lat</span></div>
 </div>
+
 </section>
+
+<!-- DLA KOGO -->
 
 <section class="fade">
 <h2>Dla kogo?</h2>
@@ -290,6 +393,16 @@ footer {
 </div>
 </section>
 
+<!-- OPINIE -->
+
+<section class="fade">
+<h2>Opinie</h2>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Mega klimat!</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball w Żorach</div>
+</section>
+
+<!-- KONTAKT -->
+
 <section id="kontakt" class="fade">
 <h2>Rezerwacja</h2>
 
@@ -297,6 +410,7 @@ footer {
 <input type="text" name="name" placeholder="Imię" required>
 <input type="tel" name="phone" placeholder="Telefon" required>
 <textarea name="message" placeholder="Termin"></textarea>
+<input type="hidden" name="_captcha" value="false">
 <button type="submit">Wyślij</button>
 </form>
 
