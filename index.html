@@ -54,11 +54,9 @@ nav a:hover { color: #4CAF50; }
 
 /* HERO */
 header {
+  position: relative;
   height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('background.png');
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -274,7 +272,27 @@ footer {
   padding:40px;
   text-align:center;
   color:#777;
-  font-size:14px;
+ /* VIDEO W TLE */
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.4);
+}
+
+/* CIEMNA NAKŁADKA */
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+} font-size:14px;
 }
 </style>
 
@@ -295,12 +313,17 @@ footer {
 </nav>
 
 <header>
-<div>
-<img src="logssso.png" class="hero-logo">
-<a href="#kontakt" class="btn">Zarezerwuj</a>
-</div>
-</header>
 
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="hero.mp4" type="video/mp4">
+</video>
+
+<div class="hero-content">
+  <img src="logssso.png" class="hero-logssso">
+  <a href="#kontakt" class="btn">Zarezerwuj</a>
+</div>
+
+</header>
 <!-- TRYBY -->
 
 <section id="tryby" class="fade">
