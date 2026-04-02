@@ -48,17 +48,14 @@ nav a:hover { color: #4CAF50; }
   top: 15px;
   right: 15px;
   z-index: 10000;
-}
-
-.fb img { width: 30px; }
-
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
   .fb {
-    bottom: 20px;
-    top: auto;
+    top: 70px;
     right: 10px;
   }
 }
+
+.fb img { width: 30px; }
 
 /* HERO */
 header {
@@ -283,7 +280,155 @@ footer {
   font-size:14px;
 }
 
-/* VIDEO FIX */
+/* VIDEO W TLE */
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* CIEMNA NAKŁADKA */
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+
+/* CONTENT NA WIERZCHU */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+</style>
+  <style>
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #eee;
+  background:
+  radial-gradient(circle at top left, #1b2a1f, transparent 40%),
+  radial-gradient(circle at bottom right, #0f3d2e, transparent 40%),
+  linear-gradient(180deg, #0a0f0c, #111, #0a0f0c);
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  z-index: 9999;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover { color: #4CAF50; }
+
+/* FB */
+.fb {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 10000;
+}
+
+.fb img { width: 30px; }
+
+/* ✅ MOBILE FIX */
+@media (max-width: 768px) {
+  .fb {
+    bottom: 20px;
+    top: auto;
+    right: 10px;
+  }
+}
+
+/* HERO */
+header {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-logo {
+  width: 750px;
+  max-width: 95%;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  filter: drop-shadow(0 0 20px rgba(76,175,80,0.6));
+  transition: 0.4s ease;
+}
+
+.hero-logo:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 40px rgba(76,175,80,0.9));
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #4CAF50, #2e7d32);
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+  display:inline-block;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(76,175,80,0.6);
+}
+
+/* SEKCJE */
+section {
+  padding: 100px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.2));
+  transition:0.3s;
+}
+
+section:hover {
+  background: linear-gradient(180deg,rgba(76,175,80,0.05),rgba(0,0,0,0.3));
+}
+
+/* ANIMACJA */
+.fade {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: 0.8s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* VIDEO FIX (NAJWAŻNIEJSZE) */
 .bg-video {
   position: absolute;
   top: 0;
@@ -310,6 +455,7 @@ header::after {
 }
 </style>
 
+
 </head>
 
 <body>
@@ -331,7 +477,6 @@ header::after {
 <video autoplay muted loop playsinline preload="auto" class="bg-video">
   <source src="hero.mp4" type="video/mp4">
 </video>
-
 <div class="hero-content">
   <img src="logssso.png" class="hero-logo">
   <a href="#kontakt" class="btn">Zarezerwuj</a>
@@ -344,34 +489,40 @@ header::after {
 <section id="tryby" class="fade">
 <h2>Tryby gry</h2>
 <div class="features">
-
 <div class="feature">
 <h3>👑 King of the Hill</h3>
-<p>Dwie drużyny walczą o przejęcie i utrzymanie wyznaczonego punktu na mapie...</p>
+<p>Dwie drużyny walczą o przejęcie i utrzymanie wyznaczonego punktu na mapie. Wygrywa ta, która najdłużej utrzyma kontrolę nad strefą. Liczy się agresja, szybkie wejścia i ciągła presja na przeciwniku.</p>
 </div>
 
 <div class="feature">
 <h3>💣 Podkładanie bomby</h3>
-<p>Jedna drużyna musi podłożyć i obronić „bombę”...</p>
+<p>Jedna drużyna musi podłożyć i obronić „bombę”, druga ma za zadanie ją rozbroić. Napięcie rośnie z każdą sekundą, a każda decyzja może zadecydować o zwycięstwie.</p>
 </div>
 
 <div class="feature">
 <h3>🧟 Zombie Mode</h3>
-<p>Jeden z graczy zostaje zombie i próbuje „zarazić” resztę...</p>
+<p>Jeden z graczy zostaje zombie i próbuje „zarazić” resztę. Każdy trafiony dołącza do zombie, a liczba przeciwników rośnie z każdą chwilą. Kto przetrwa do końca?</p>
 </div>
 
 <div class="feature">
 <h3>👑 VIP Escort</h3>
-<p>Jedna drużyna eskortuje VIP-a...</p>
+<p>Jedna drużyna eskortuje VIP-a do wyznaczonego punktu, druga próbuje go zatrzymać. Kluczowa jest współpraca, ochrona i szybkie podejmowanie decyzji.</p>
 </div>
 
 </div>
 </section>
+
+<!-- JAK WYGLĄDA -->
 
 <section class="fade">
 <h2>Jak wygląda gra?</h2>
-<p>Rezerwujesz → przyjeżdżasz → szkolenie → gramy 💥</p>
+<p>
+Rezerwujesz → przyjeżdżasz → szkolenie → gramy 💥<br><br>
+Pełna adrenalina i różne scenariusze!
+</p>
 </section>
+
+<!-- GALERIA -->
 
 <section id="galeria" class="fade">
 <h2>Galeria</h2>
@@ -379,20 +530,109 @@ header::after {
 <img src="image1.png">
 <img src="image2.png">
 <img src="image3.png">
+<img src="image4.png">
+<img src="image5.png">
+<img src="image6.png">
 </div>
 </section>
 
+<!-- CENNIK -->
+
+<section id="cennik" class="fade">
+<h2>Cennik</h2>
+
+<div class="price">
+<h3>Gel Blaster</h3>
+<p>60 zł – godzina</p>
+
+<h3>Paintball</h3>
+<p>50 zł – 100 kul</p>
+<p>120 zł – 500 kul</p>
+
+<h3>.50 CAL</h3>
+<p>50 zł – ~200 kul</p>
+<p>120 zł – 500 kul</p>
+</div>
+
+<a href="#kontakt" class="btn">🔥 Zarezerwuj teraz</a>
+
+</section>
+
+<!-- O NAS -->
+
+<section id="onas" class="fade about">
+<h2>O nas</h2>
+<p>Jesteśmy ekipą pasjonatów paintballa z Żor, którzy żyją tym sportem na co dzień.
+
+Tworzymy miejsce, w którym liczy się adrenalina, dobra zabawa i rywalizacja na najwyższym poziomie. Organizujemy gry dla grup znajomych, firm, urodzin oraz wieczorów kawalerskich.
+
+Dysponujemy profesjonalnym sprzętem oraz różnorodnymi scenariuszami gry, dzięki którym każda rozgrywka jest wyjątkowa. Nad bezpieczeństwem i przebiegiem zabawy czuwa doświadczona ekipa instruktorów.
+
+Zbierz swoją drużynę i przekonaj się, kto naprawdę rządzi na polu walki 💥</p>
+
+<div class="team">
+<img src="team1.png">
+<img src="team2.png">
+</div>
+
+<div class="stats">
+<div>750+<span>gier</span></div>
+<div>1000+<span>klientów</span></div>
+<div>10<span>lat na rynku</span></div>
+</div>
+</section>
+
+<!-- DLA KOGO -->
+
+<section class="fade">
+<h2>Dla kogo?</h2>
+<div class="features">
+<div class="feature">🎂 Urodziny</div>
+<div class="feature">👔 Firmy</div>
+<div class="feature">👥 Znajomi</div>
+<div class="feature">🎓 Kawalerskie</div>
+</div>
+</section>
+
+<!-- OPINIE -->
+
+<section class="fade">
+<h2>Opinie</h2>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Mega klimat!</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball w Żorach</div>
+</section>
+
+<!-- KONTAKT -->
+
 <section id="kontakt" class="fade">
 <h2>Rezerwacja</h2>
-<form>
-<input placeholder="Imię">
-<button>Wyślij</button>
+
+<form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
+<input type="text" name="name" placeholder="Imię" required>
+<input type="tel" name="phone" placeholder="Telefon" required>
+<textarea name="message" placeholder="Termin"></textarea>
+<input type="hidden" name="_captcha" value="false">
+<button type="submit">Wyślij</button>
 </form>
+
+<iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&t=&z=15&output=embed"></iframe>
 </section>
 
 <footer>
 Paintball Żory © 2026
 </footer>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+});
+faders.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
