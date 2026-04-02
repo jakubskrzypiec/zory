@@ -272,15 +272,19 @@ footer {
   padding:40px;
   text-align:center;
   color:#777;
- /* VIDEO W TLE */
+  font-size:14px;
+}
+
+/* VIDEO W TLE */
 .bg-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   width: 100vw;
   height: 100vh;
+  transform: translate(-50%, -50%);
   object-fit: cover;
-  z-index: -1;
+  z-index: -2;
 }
 
 /* CIEMNA NAKŁADKA */
@@ -290,7 +294,12 @@ header::after {
   inset: 0;
   background: rgba(0,0,0,0.5);
   z-index: -1;
-} font-size:14px;
+}
+
+/* CONTENT NA WIERZCHU */
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 </style>
 
@@ -317,11 +326,12 @@ header::after {
 </video>
 
 <div class="hero-content">
-  <img src="logssso.png" class="hero-logssso">
+  <img src="logssso.png" class="hero-logo">
   <a href="#kontakt" class="btn">Zarezerwuj</a>
 </div>
 
 </header>
+
 <!-- TRYBY -->
 
 <section id="tryby" class="fade">
@@ -384,10 +394,7 @@ Pełna adrenalina i różne scenariusze!
 
 <section id="onas" class="fade about">
 <h2>O nas</h2>
-
-<p>
-Jesteśmy ekipą pasjonatów paintballa z Żor 💥
-</p>
+<p>Jesteśmy ekipą pasjonatów paintballa z Żor 💥</p>
 
 <div class="team">
 <img src="team1.png">
@@ -399,7 +406,6 @@ Jesteśmy ekipą pasjonatów paintballa z Żor 💥
 <div>5000+<span>klientów</span></div>
 <div>5+<span>lat</span></div>
 </div>
-
 </section>
 
 <!-- DLA KOGO -->
