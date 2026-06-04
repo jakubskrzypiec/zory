@@ -1,500 +1,210 @@
 <!DOCTYPE html>
-
 <html lang="pl">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paintball Żory</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-html { scroll-behavior: smooth; }
+  <title>Paintball Żory | Paintball, Gel Blaster i .50 Cal</title>
 
-body {
-  margin: 0;
-  font-family: 'Poppins', Arial, sans-serif;
-  color: #eee;
-  background:
-  radial-gradient(circle at top left, #1b2a1f, transparent 40%),
-  radial-gradient(circle at bottom right, #0f3d2e, transparent 40%),
-  linear-gradient(180deg, #0a0f0c, #111, #0a0f0c);
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-/* NAV */
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 20px;
-  z-index: 9999;
-  flex-wrap: wrap;
-}
-
-nav a {
-  color: #ccc;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-nav a:hover { color: #4CAF50; }
-
-/* FB */
-.fb {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 10000;
-}
-
-.fb img { width: 30px; }
-
-/* HERO */
-header {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero-logo {
-  width: 750px;
-  max-width: 95%;
-  height: auto;
-  margin-bottom: 20px;
-  display: block;
-  filter: drop-shadow(0 0 20px rgba(76,175,80,0.6));
-  transition: 0.4s ease;
-}
-
-.hero-logo:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 40px rgba(76,175,80,0.9));
-}
-
-.btn {
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: linear-gradient(45deg, #4CAF50, #2e7d32);
-  color: white;
-  border-radius: 25px;
-  text-decoration: none;
-  transition: 0.3s;
-  display:inline-block;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(76,175,80,0.6);
-}
-
-/* SEKCJE */
-section {
-  padding: 100px 20px;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.2));
-  transition:0.3s;
-}
-
-section:hover {
-  background: linear-gradient(180deg,rgba(76,175,80,0.05),rgba(0,0,0,0.3));
-}
-
-/* ANIMACJA */
-.fade {
-  opacity: 0;
-  transform: translateY(40px) scale(0.98);
-  transition: 0.8s ease;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* O NAS */
-.about {
-  max-width: 900px;
-  margin: auto;
-}
-
-.team {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.team img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: 0.4s;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.team img:hover { transform: scale(1.05); }
-
-/* STATY */
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
-
-.stats div {
-  background: rgba(255,255,255,0.03);
-  padding: 20px 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(76,175,80,0.2);
-  transition: 0.3s;
-  font-size: 28px;
-  color: #4CAF50;
-}
-
-.stats div:hover {
-  transform: translateY(-5px);
-  border-color: #4CAF50;
-}
-
-.stats span {
-  display: block;
-  font-size: 13px;
-  color: #aaa;
-  margin-top: 5px;
-}
-
-/* FEATURES */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 20px;
-}
-
-.feature {
-  background: rgba(255,255,255,0.03);
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: 0.3s;
-}
-
-.feature:hover {
-  transform: translateY(-5px);
-  border-color: #4CAF50;
-}
-
-/* CENNIK */
-.price {
-  max-width: 600px;
-  margin: auto;
-  text-align: left;
-  background: #111;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.price h3 { color: #4CAF50; }
-
-.price p {
-  border-bottom: 1px solid #333;
-  padding: 8px 0;
-}
-
-/* GALERIA */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: 0.4s;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.gallery img:hover { transform: scale(1.05); }
-
-/* OPINIE */
-.review {
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 10px;
-}
-
-/* FORM */
-form {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input, textarea {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-}
-
-button {
-  background: #4CAF50;
-  color: white;
-  padding: 12px;
-  border: none;
-  cursor: pointer;
-}
-
-/* MAPA */
-iframe {
-  width: 100%;
-  height: 300px;
-  margin-top: 20px;
-  border: none;
-}
-
-footer {
-  padding:40px;
-  text-align:center;
-  color:#777;
-  font-size:14px;
-}
-
-/* VIDEO W TLE */
-.bg-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: -2;
-}
-
-/* CIEMNA NAKŁADKA */
-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: -1;
-}
-
-/* CONTENT NA WIERZCHU */
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-  @media (max-width: 768px) {
-  .fb {
-    bottom: 20px;
-    top: auto;
-    right: 10px;
-  }
-}
-</style>
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<a class="fb" href="https://www.facebook.com/PaintballBorowka" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
-</a>
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="logo.png" alt="Paintball Żory">
+  </a>
 
-<nav>
-<a href="#onas">O NAS</a>
-<a href="#tryby">TRYBY</a>
-<a href="#cennik">CENNIK</a>
-<a href="#galeria">GALERIA</a>
-<a href="#kontakt">KONTAKT</a>
-</nav>
+  <nav class="nav">
+    <a href="index.html">Start</a>
+    <a href="tryby.html">Tryby</a>
+    <a href="pole.html">Pole gry</a>
+    <a href="sprzet.html">Sprzęt</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
 
-<header>
-
-<video autoplay muted loop playsinline class="bg-video">
-  <source src="hero.mp4" type="video/mp4">
-</video>
-
-<div class="hero-content">
-  <img src="logssso.png" class="hero-logo">
-  <a href="#kontakt" class="btn">Zarezerwuj</a>
-</div>
-
+  <a href="kontakt.html" class="header-btn">Rezerwacja</a>
 </header>
 
-<!-- TRYBY -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
 
-<section id="tryby" class="fade">
-<h2>Tryby gry</h2>
-<div class="features">
-<div class="feature">
-<h3>👑 King of the Hill</h3>
-<p>Dwie drużyny walczą o przejęcie i utrzymanie wyznaczonego punktu na mapie. Wygrywa ta, która najdłużej utrzyma kontrolę nad strefą. Liczy się agresja, szybkie wejścia i ciągła presja na przeciwniku.</p>
-</div>
+  <div class="hero-content reveal">
+    <span class="eyebrow">Paintball • Gel Blaster • .50 Cal</span>
+    <h1>Poczuj adrenalinę na polu paintballowym.</h1>
+    <p>
+      Dynamiczne rozgrywki dla dzieci, młodzieży i dorosłych. Gel Blaster, Paintball .50 cal
+      oraz klasyczny paintball — wybierz tryb gry i wejdź do akcji.
+    </p>
 
-<div class="feature">
-<h3>💣 Podkładanie bomby</h3>
-<p>Jedna drużyna musi podłożyć i obronić „bombę”, druga ma za zadanie ją rozbroić. Napięcie rośnie z każdą sekundą, a każda decyzja może zadecydować o zwycięstwie.</p>
-</div>
+    <div class="hero-actions">
+      <a href="kontakt.html" class="btn-primary">Zarezerwuj termin</a>
+      <a href="tryby.html" class="btn-secondary">Zobacz tryby gry</a>
+    </div>
+  </div>
 
-<div class="feature">
-<h3>🧟 Zombie Mode</h3>
-<p>Jeden z graczy zostaje zombie i próbuje „zarazić” resztę. Każdy trafiony dołącza do zombie, a liczba przeciwników rośnie z każdą chwilą. Kto przetrwa do końca?</p>
-</div>
-
-<div class="feature">
-<h3>👑 VIP Escort</h3>
-<p>Jedna drużyna eskortuje VIP-a do wyznaczonego punktu, druga próbuje go zatrzymać. Kluczowa jest współpraca, ochrona i szybkie podejmowanie decyzji.</p>
-</div>
-
-</div>
+  <div class="hero-panel reveal">
+    <div>
+      <strong>3</strong>
+      <span>tryby gry</span>
+    </div>
+    <div>
+      <strong>9+</strong>
+      <span>dla dzieci</span>
+    </div>
+    <div>
+      <strong>100%</strong>
+      <span>adrenaliny</span>
+    </div>
+  </div>
 </section>
 
-<!-- JAK WYGLĄDA -->
+<section class="quick-info">
+  <div class="reveal">
+    <span>Dla ekip</span>
+    <strong>Znajomi i firmy</strong>
+    <p>Idealne miejsce na integracje, wypady ze znajomymi i turnieje.</p>
+  </div>
 
-<section class="fade">
-<h2>Jak wygląda gra?</h2>
-<p>
-Rezerwujesz → przyjeżdżasz → szkolenie → gramy 💥<br><br>
-Pełna adrenalina i różne scenariusze!
-</p>
+  <div class="reveal">
+    <span>Dla dzieci</span>
+    <strong>Gel Blaster</strong>
+    <p>Lżejsza, szybka i bezpieczna forma rozgrywki dla młodszych graczy.</p>
+  </div>
+
+  <div class="reveal">
+    <span>Po grze</span>
+    <strong>Ognisko i chill</strong>
+    <p>Po rozgrywce można zostać, odpocząć i podsumować najlepsze akcje.</p>
+  </div>
 </section>
 
-<!-- GALERIA -->
+<section class="section modes-section">
+  <div class="section-title reveal">
+    <span>Tryby gry</span>
+    <h2>Wybierz poziom adrenaliny</h2>
+    <p>
+      Każdy może znaleźć coś dla siebie — od lekkiej zabawy dla dzieci,
+      po klasyczny paintball dla ekip szukających mocnych emocji.
+    </p>
+  </div>
 
-<section id="galeria" class="fade">
-<h2>Galeria</h2>
-<div class="gallery">
-<img src="image1.png">
-<img src="image2.png">
-<img src="image3.png">
-<img src="image4.png">
-<img src="image5.png">
-<img src="image6.png">
-</div>
+  <div class="mode-grid">
+    <article class="mode-card reveal">
+      <img src="image.png" alt="Gel Blaster">
+      <div>
+        <span>Najlżejszy tryb</span>
+        <h3>Gel Blaster</h3>
+        <p>Lekkie kulki żelowe, szybka zabawa i świetna opcja dla dzieci oraz początkujących.</p>
+        <a href="tryby.html">Zobacz więcej</a>
+      </div>
+    </article>
+
+    <article class="mode-card reveal">
+      <img src="image1.png" alt="Paintball .50 cal">
+      <div>
+        <span>Mniejszy kaliber</span>
+        <h3>Paintball .50 Cal</h3>
+        <p>Mniejsze markery, mniejszy ból i bardzo dobry wybór dla młodzieży oraz rodzin.</p>
+        <a href="tryby.html">Zobacz więcej</a>
+      </div>
+    </article>
+
+    <article class="mode-card reveal">
+      <img src="image2.png" alt="Paintball klasyczny">
+      <div>
+        <span>Maksymalna adrenalina</span>
+        <h3>Paintball klasyczny</h3>
+        <p>Najmocniejszy klimat gry, większa dynamika i pełne emocje dla dorosłych ekip.</p>
+        <a href="tryby.html">Zobacz więcej</a>
+      </div>
+    </article>
+  </div>
 </section>
 
-<!-- CENNIK -->
+<section class="field-preview">
+  <div class="field-copy reveal">
+    <span>Interaktywne pole</span>
+    <h2>Zobacz pole gry w formie 3D</h2>
+    <p>
+      Przygotowaliśmy interaktywną makietę pola. Możesz obracać kamerę, przybliżać,
+      oddalać i sprawdzić najważniejsze miejsca na arenie.
+    </p>
+    <a href="pole.html" class="btn-primary">Otwórz mapę pola</a>
+  </div>
 
-<section id="cennik" class="fade">
-<h2>Cennik</h2>
-
-<div class="price">
-<h3>Gel Blaster</h3>
-<p>60 zł – godzina</p>
-
-<h3>Paintball</h3>
-<p>25 zł – 100 kul</p>
-<p>120 zł – 500 kul</p>
-
-<h3>.50 CAL</h3>
-<p>50 zł – ~200 kul</p>
-<p>120 zł – 500 kul</p>
-</div>
-
-<a href="#kontakt" class="btn">🔥 Zarezerwuj teraz</a>
-
+  <div class="field-image reveal">
+    <img src="background.png" alt="Pole paintballowe">
+  </div>
 </section>
 
-<!-- O NAS -->
+<section class="section gallery-section">
+  <div class="section-title reveal">
+    <span>Galeria</span>
+    <h2>Klimat pola</h2>
+    <p>Zobacz zdjęcia z rozgrywek, drużyn i terenu.</p>
+  </div>
 
-<section id="onas" class="fade about">
-<h2>O nas</h2>
-<p>Jesteśmy ekipą pasjonatów paintballa z Żor, którzy żyją tym sportem na co dzień.
-
-Tworzymy miejsce, w którym liczy się adrenalina, dobra zabawa i rywalizacja na najwyższym poziomie. Organizujemy gry dla grup znajomych, firm, urodzin oraz wieczorów kawalerskich.
-
-Dysponujemy profesjonalnym sprzętem oraz różnorodnymi scenariuszami gry, dzięki którym każda rozgrywka jest wyjątkowa. Nad bezpieczeństwem i przebiegiem zabawy czuwa doświadczona ekipa instruktorów.
-
-Zbierz swoją drużynę i przekonaj się, kto naprawdę rządzi na polu walki 💥</p>
-
-<div class="team">
-<img src="team1.png">
-<img src="team2.png">
-</div>
-
-<div class="stats">
-<div>750+<span>gier</span></div>
-<div>1000+<span>klientów</span></div>
-<div>10<span>lat na rynku</span></div>
-</div>
+  <div class="gallery-grid">
+    <img class="reveal" src="image3.png" alt="Paintball">
+    <img class="reveal" src="image4.png" alt="Paintball">
+    <img class="reveal" src="image5.png" alt="Paintball">
+    <img class="reveal" src="image6.png" alt="Paintball">
+    <img class="reveal" src="team1.png" alt="Drużyna">
+    <img class="reveal" src="team2.png" alt="Drużyna">
+  </div>
 </section>
 
-<!-- DLA KOGO -->
+<section class="cta">
+  <div class="cta-inner reveal">
+    <span>Rezerwacja</span>
+    <h2>Gotowy na grę?</h2>
+    <p>
+      Zbierz ekipę, wybierz tryb gry i zarezerwuj termin. Paintball to świetna opcja
+      na urodziny, integrację, spotkanie ze znajomymi albo aktywny weekend.
+    </p>
 
-<section class="fade">
-<h2>Dla kogo?</h2>
-<div class="features">
-<div class="feature">🎂 Urodziny</div>
-<div class="feature">👔 Firmy</div>
-<div class="feature">👥 Znajomi</div>
-<div class="feature">🎓 Kawalerskie</div>
-</div>
+    <div class="hero-actions">
+      <a href="kontakt.html" class="btn-primary">Zarezerwuj termin</a>
+      <a href="sprzet.html" class="btn-secondary">Zobacz sprzęt</a>
+    </div>
+  </div>
 </section>
 
-<!-- OPINIE -->
+<footer class="footer">
+  <div>
+    <img src="logo.png" alt="Paintball Żory">
+    <p>Paintball, Gel Blaster i .50 Cal — adrenalina, teren, taktyka i dobra zabawa.</p>
+  </div>
 
-<section class="fade">
-<h2>Opinie</h2>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Mega klimat!</div>
-<div class="review">⭐️⭐️⭐️⭐️⭐️ Najlepszy paintball w Żorach</div>
-</section>
+  <div>
+    <h3>Menu</h3>
+    <a href="tryby.html">Tryby gry</a>
+    <a href="pole.html">Pole gry</a>
+    <a href="sprzet.html">Sprzęt</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
 
-<!-- KONTAKT -->
-
-<section id="kontakt" class="fade">
-<h2>Rezerwacja</h2>
-
-<form action="https://formsubmit.co/kuba.skrzypiec5@gmail.com" method="POST">
-<input type="text" name="name" placeholder="Imię" required>
-<input type="tel" name="phone" placeholder="Telefon" required>
-<textarea name="message" placeholder="Termin"></textarea>
-<input type="hidden" name="_captcha" value="false">
-<button type="submit">Wyślij</button>
-</form>
-
-<iframe src="https://maps.google.com/maps?q=Kolejowa%2043%20Żory&t=&z=15&output=embed"></iframe>
-</section>
-
-<footer>
-Paintball Żory © 2026
+  <div>
+    <h3>Kontakt</h3>
+    <a href="kontakt.html" class="footer-phone">Zarezerwuj termin</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="kontakt.html">Dane kontaktowe</a>
+  </div>
 </footer>
 
-<script>
-const faders = document.querySelectorAll('.fade');
-const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
-});
-});
-faders.forEach(el => observer.observe(el));
-</script>
-<script>
-const video = document.querySelector(".bg-video");
+<div class="footer-bottom">
+  <p>Paintball Żory © 2026</p>
+  <p>Projekt pokazowy strony</p>
+</div>
 
-if (video) {
-  video.muted = true;
-  video.play().catch(() => {});
-}
-</script>
+<script src="script.js"></script>
 </body>
 </html>
