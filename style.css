@@ -1,1 +1,798 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #090909;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:root {
+  --orange: #ff6a00;
+  --orange2: #ff9d00;
+  --dark: #090909;
+  --panel: rgba(255,255,255,0.07);
+  --line: rgba(255,255,255,0.12);
+  --text: rgba(255,255,255,0.72);
+  --shadow: 0 24px 80px rgba(0,0,0,0.35);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1180px, calc(100% - 28px));
+  min-height: 78px;
+  padding: 12px 18px;
+  background: rgba(10,10,10,0.72);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(20px);
+  border-radius: 999px;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 26px;
+  box-shadow: 0 20px 70px rgba(0,0,0,0.35);
+}
+
+.logo img {
+  height: 52px;
+  width: auto;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav a {
+  padding: 12px 14px;
+  border-radius: 999px;
+  color: rgba(255,255,255,0.68);
+  font-size: 13px;
+  font-weight: 900;
+  transition: 0.25s ease;
+}
+
+.nav a:hover {
+  color: #111;
+  background: var(--orange);
+}
+
+.header-btn,
+.btn-primary,
+.btn-secondary {
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 950;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  transition: 0.25s ease;
+}
+
+.header-btn,
+.btn-primary {
+  background: linear-gradient(135deg, var(--orange), var(--orange2));
+  color: #111;
+  box-shadow: 0 18px 45px rgba(255,106,0,0.26);
+}
+
+.header-btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-4px);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid var(--line);
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  padding: 175px 6% 90px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("hero.png") center/cover no-repeat;
+  transform: scale(1.06);
+  animation: heroMove 14s ease-in-out infinite alternate;
+  z-index: -3;
+}
+
+@keyframes heroMove {
+  from { transform: scale(1.06); }
+  to { transform: scale(1.15); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 40%, rgba(255,106,0,0.3), transparent 28%),
+    linear-gradient(90deg, rgba(0,0,0,0.92), rgba(0,0,0,0.62), rgba(0,0,0,0.75));
+  z-index: -2;
+}
+
+.hero-content {
+  max-width: 860px;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow,
+.section-title span,
+.field-copy span,
+.cta span,
+.map-info span,
+.equipment-copy span {
+  display: inline-flex;
+  width: fit-content;
+  padding: 10px 15px;
+  border-radius: 999px;
+  background: rgba(255,106,0,0.12);
+  border: 1px solid rgba(255,106,0,0.32);
+  color: var(--orange2);
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 22px;
+}
+
+.hero h1,
+.section-title h2,
+.field-copy h2,
+.cta h2,
+.map-info h1,
+.equipment-copy h1 {
+  font-family: 'Black Ops One', system-ui;
+  font-size: clamp(44px, 7vw, 92px);
+  line-height: 0.98;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.hero p,
+.section-title p,
+.field-copy p,
+.cta p,
+.map-info p,
+.equipment-copy p {
+  max-width: 720px;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 28px 0 38px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-panel {
+  position: absolute;
+  right: 6%;
+  bottom: 70px;
+  width: 420px;
+  padding: 18px;
+  border-radius: 28px;
+  background: rgba(10,10,10,0.68);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  z-index: 3;
+}
+
+.hero-panel div {
+  padding: 20px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  text-align: center;
+}
+
+.hero-panel strong {
+  font-family: 'Black Ops One', system-ui;
+  font-size: 34px;
+  color: var(--orange);
+}
+
+.hero-panel span {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.quick-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #0d0d0d;
+}
+
+.quick-info div {
+  padding: 44px 6%;
+  border-right: 1px solid var(--line);
+}
+
+.quick-info div:last-child {
+  border-right: none;
+}
+
+.quick-info span {
+  color: var(--orange);
+  font-weight: 950;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.quick-info strong {
+  display: block;
+  font-family: 'Black Ops One', system-ui;
+  font-size: 30px;
+  margin: 14px 0;
+}
+
+.quick-info p {
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.section {
+  padding: 110px 6%;
+}
+
+.section-title {
+  max-width: 900px;
+  margin-bottom: 58px;
+}
+
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.mode-card {
+  min-height: 560px;
+  border-radius: 34px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.mode-card img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  filter: brightness(0.78);
+}
+
+.mode-card div {
+  padding: 30px;
+}
+
+.mode-card span {
+  color: var(--orange);
+  font-weight: 950;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.mode-card h3 {
+  font-family: 'Black Ops One', system-ui;
+  font-size: 31px;
+  margin: 14px 0;
+}
+
+.mode-card p {
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.mode-card a {
+  display: inline-flex;
+  margin-top: 24px;
+  color: var(--orange2);
+  font-weight: 950;
+}
+
+.field-preview {
+  padding: 110px 6%;
+  background: #111;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.field-image img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  display: block;
+  border-radius: 38px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.gallery-section {
+  background: #090909;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  filter: saturate(1.05) contrast(1.04);
+}
+
+.cta {
+  padding: 110px 6%;
+  background: #111;
+}
+
+.cta-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 70px 50px;
+  border-radius: 42px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,106,0,0.22), transparent 34%),
+    rgba(255,255,255,0.04);
+  text-align: center;
+}
+
+.cta p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta .hero-actions {
+  justify-content: center;
+}
+
+.footer {
+  padding: 70px 6% 38px;
+  background: #050505;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 0.9fr;
+  gap: 50px;
+}
+
+.footer img {
+  height: 62px;
+  width: auto;
+  margin-bottom: 22px;
+}
+
+.footer p {
+  max-width: 420px;
+  color: rgba(255,255,255,0.56);
+  line-height: 1.75;
+}
+
+.footer h3 {
+  font-family: 'Black Ops One', system-ui;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.footer a {
+  display: block;
+  margin: 11px 0;
+  color: rgba(255,255,255,0.64);
+  font-weight: 850;
+}
+
+.footer-phone {
+  color: var(--orange) !important;
+  font-size: 24px;
+}
+
+.footer-bottom {
+  padding: 22px 6%;
+  background: #050505;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255,255,255,0.38);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.map-page,
+.equipment-page {
+  min-height: 100vh;
+  padding: 130px 24px 24px;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  background: #050505;
+}
+
+.map-info,
+.equipment-copy {
+  padding: 32px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--line);
+}
+
+.map-info h1,
+.equipment-copy h1 {
+  font-size: 48px;
+}
+
+.map-info p,
+.equipment-copy p {
+  font-size: 15px;
+  margin: 22px 0;
+}
+
+.map-legend,
+.equipment-tabs {
+  display: grid;
+  gap: 12px;
+}
+
+.map-legend button,
+.equipment-tabs button {
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.map-legend button:hover,
+.equipment-tabs button:hover,
+.equipment-tabs button.active {
+  background: var(--orange);
+  color: #111;
+}
+
+.map-wrapper {
+  position: relative;
+  min-height: calc(100vh - 154px);
+  border-radius: 34px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #101010;
+}
+
+#fieldCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.map-popup {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  width: 290px;
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(5,5,5,0.78);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+  display: none;
+}
+
+.map-popup.active {
+  display: block;
+}
+
+.map-popup h3 {
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
+.map-popup p {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.equipment-stats {
+  margin-top: 28px;
+  display: grid;
+  gap: 12px;
+}
+
+.equipment-stats div {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--line);
+}
+
+.equipment-stats strong {
+  display: block;
+  color: var(--orange);
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.equipment-stats span {
+  color: rgba(255,255,255,0.58);
+  font-weight: 850;
+}
+
+.equipment-viewer {
+  min-height: calc(100vh - 154px);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at center, rgba(255,106,0,0.18), transparent 38%),
+    #101010;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.weapon-card {
+  width: min(780px, 100%);
+  min-height: 460px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+  transition: 0.15s ease;
+}
+
+.weapon-card img {
+  max-width: 88%;
+  max-height: 420px;
+  object-fit: contain;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.55));
+}
+
+.weapon-point {
+  position: absolute;
+}
+
+.weapon-point > span {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 4px solid #fff;
+  display: block;
+  animation: pulse 2s infinite;
+}
+
+.weapon-point div {
+  position: absolute;
+  width: 220px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(5,5,5,0.86);
+  border: 1px solid var(--line);
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.weapon-point:hover div {
+  opacity: 1;
+}
+
+.weapon-point h3 {
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
+.weapon-point p {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.point-one {
+  top: 32%;
+  left: 28%;
+}
+
+.point-two {
+  top: 58%;
+  right: 24%;
+}
+
+.viewer-hint {
+  color: rgba(255,255,255,0.45);
+  font-weight: 800;
+  text-align: center;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,106,0,0.55); }
+  70% { box-shadow: 0 0 0 18px rgba(255,106,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,106,0,0); }
+}
+
+@media (max-width: 1000px) {
+  .header {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: calc(100% - 20px);
+    margin: 10px auto 0;
+    border-radius: 28px;
+    grid-template-columns: 1fr;
+  }
+
+  .logo img {
+    height: 46px;
+  }
+
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .header-btn {
+    width: 100%;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 70px 24px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero-panel {
+    position: static;
+    width: 100%;
+    margin-top: 36px;
+  }
+
+  .quick-info,
+  .mode-grid,
+  .field-preview,
+  .gallery-grid,
+  .footer,
+  .map-page,
+  .equipment-page {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-info div {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section,
+  .field-preview,
+  .cta {
+    padding: 78px 24px;
+  }
+
+  .field-image img {
+    height: 360px;
+  }
+
+  .map-page,
+  .equipment-page {
+    padding-top: 28px;
+  }
+
+  .map-wrapper,
+  .equipment-viewer {
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav a {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .hero h1,
+  .section-title h2,
+  .field-copy h2,
+  .cta h2 {
+    font-size: 36px;
+  }
+
+  .hero p,
+  .section-title p,
+  .field-copy p,
+  .cta p {
+    font-size: 15px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .hero-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-card {
+    min-height: auto;
+  }
+
+  .gallery-grid img {
+    height: 240px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
