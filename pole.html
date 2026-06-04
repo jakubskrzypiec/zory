@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Pole gry 3D | Paintball Żory</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="logo.png" alt="Paintball Żory">
+  </a>
+
+  <nav class="nav">
+    <a href="index.html">Start</a>
+    <a href="tryby.html">Tryby</a>
+    <a href="pole.html">Pole gry</a>
+    <a href="sprzet.html">Sprzęt</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+
+  <a href="kontakt.html" class="header-btn">Rezerwacja</a>
+</header>
+
+<section class="map-page">
+  <div class="map-info">
+    <span>Makieta 3D</span>
+    <h1>Interaktywne pole gry</h1>
+    <p>
+      Obracaj mapę, przybliżaj teren i klikaj punkty, żeby zobaczyć najważniejsze miejsca na polu.
+    </p>
+
+    <div class="map-legend">
+      <button data-focus="base">Baza</button>
+      <button data-focus="cover">Przeszkody</button>
+      <button data-focus="forest">Las</button>
+      <button data-focus="fire">Ognisko</button>
+    </div>
+  </div>
+
+  <div class="map-wrapper">
+    <canvas id="fieldCanvas"></canvas>
+
+    <div id="mapPopup" class="map-popup">
+      <h3>Miejsce</h3>
+      <p>Opis punktu na mapie.</p>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="field-map.js"></script>
+</body>
+</html>
