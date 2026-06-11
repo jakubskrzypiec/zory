@@ -16,6 +16,7 @@
 
 <div class="page-loader" id="pageLoader">
   <div class="loader-bg"></div>
+
   <div class="loader-content">
     <img src="logo.png" alt="Paintball Żory">
     <span>Paintball • Gel Blaster • .50 Cal</span>
@@ -23,11 +24,11 @@
 </div>
 
 <header class="site-header">
-  <a href="index.html" class="brand">
+  <a href="index.html" class="brand" aria-label="Paintball Żory - strona główna">
     <img src="logo.png" alt="Paintball Żory">
   </a>
 
-  <nav class="nav">
+  <nav class="nav" aria-label="Menu główne">
     <a href="index.html">Start</a>
     <a href="tryby.html">Tryby</a>
     <a href="pole.html">Pole gry</a>
@@ -36,7 +37,7 @@
     <a href="kontakt.html">Kontakt</a>
   </nav>
 
-  <a href="kontakt.html" class="nav-cta">Rezerwacja</a>
+  <a href="tel:669970180" class="nav-cta">Rezerwacja</a>
 </header>
 
 <main>
@@ -46,7 +47,6 @@
 
     <div class="hero-content reveal">
       <span class="badge">Paintball • Gel Blaster • .50 Cal</span>
-
       <img src="logo.png" alt="Paintball Żory" class="hero-logo">
 
       <p>
@@ -55,7 +55,7 @@
       </p>
 
       <div class="hero-actions">
-        <a href="kontakt.html" class="btn btn-orange">Zarezerwuj termin</a>
+        <a href="tel:669970180" class="btn btn-orange">Zadzwoń i zarezerwuj</a>
         <a href="cennik.html" class="btn btn-glass">Zobacz cennik</a>
       </div>
     </div>
@@ -63,27 +63,28 @@
 
   <section class="info-strip reveal">
     <article>
+      <strong>3 tryby</strong>
+      <span>Paintball, .50 Cal i Gel Blaster</span>
+    </article>
+
+    <article>
       <strong>Dla ekip</strong>
-      <span>znajomi, urodziny i integracje</span>
+      <span>urodziny, znajomi, integracje</span>
     </article>
 
     <article>
-      <strong>Dla dzieci</strong>
-      <span>Gel Blaster i lżejsze scenariusze</span>
-    </article>
-
-    <article>
-      <strong>Po grze</strong>
-      <span>ognisko, chill i podsumowanie akcji</span>
+      <strong>Ognisko</strong>
+      <span>możliwość ogniska po grze</span>
     </article>
   </section>
 
   <section class="section">
     <div class="section-title reveal">
       <span>Tryby gry</span>
-      <h2>Wybierz klimat rozgrywki</h2>
+      <h2>Wybierz poziom adrenaliny</h2>
       <p>
-        Od lekkiej zabawy dla dzieci po klasyczny paintball dla ekip szukających większej adrenaliny.
+        Dla młodszych graczy przygotowany jest Gel Blaster, dla rodzin i młodzieży .50 Cal,
+        a dla ekip klasyczny paintball.
       </p>
     </div>
 
@@ -91,19 +92,19 @@
       <article class="mode-mini reveal">
         <span>01</span>
         <h3>Gel Blaster</h3>
-        <p>Lekkie kulki żelowe, szybka zabawa i świetny wybór dla młodszych graczy.</p>
+        <p>Lekkie kulki żelowe, szybkie rundy i dobry start dla dzieci oraz początkujących.</p>
       </article>
 
       <article class="mode-mini reveal">
         <span>02</span>
-        <h3>Paintball .50 Cal</h3>
-        <p>Mniejszy kaliber, mniejszy ból i bardzo dobra opcja dla rodzin oraz młodzieży.</p>
+        <h3>.50 Cal Paintball</h3>
+        <p>Mniejszy kaliber, mniejszy ból i świetny kompromis między zabawą a emocjami.</p>
       </article>
 
       <article class="mode-mini reveal">
         <span>03</span>
-        <h3>Paintball klasyczny</h3>
-        <p>Mocniejszy klimat, taktyka i dynamiczna gra dla dorosłych ekip.</p>
+        <h3>Paintball</h3>
+        <p>Klasyczna rozgrywka, więcej adrenaliny, taktyki i rywalizacji dla dorosłych ekip.</p>
       </article>
     </div>
 
@@ -115,31 +116,34 @@
   <section class="section field-preview">
     <div class="field-text reveal">
       <span class="badge">Pole gry</span>
-      <h2>Prawdziwy teren, przeszkody i dużo miejsca do akcji.</h2>
+      <h2>Kolorowa makieta pola i prawdziwy teren.</h2>
       <p>
-        Pole składa się z osłon, beczek, barykad i naturalnego terenu.
-        Mapę pola dopracujemy osobno, a na stronie zostaje realny podgląd terenu.
+        Na stronie wykorzystujemy makietę <strong>pole.png</strong> oraz zdjęcie prawdziwego terenu,
+        żeby pokazać klimat rozgrywki i układ pola.
       </p>
 
       <a href="pole.html" class="btn btn-orange">Zobacz pole gry</a>
     </div>
 
     <div class="field-image reveal">
-      <img src="background.png" alt="Pole paintballowe">
+      <img src="pole.png" alt="Makieta pola paintballowego">
     </div>
   </section>
 
   <section class="section gallery-preview">
     <div class="section-title reveal">
       <span>Galeria</span>
-      <h2>Klimat rozgrywek</h2>
-      <p>Wybrane zdjęcia z terenu i zabawy. Bez sportowych zdjęć turniejowych.</p>
+      <h2>Zdjęcia z paintballa</h2>
+      <p>Galeria korzysta tylko ze zdjęć paintballowych: image1.png — image6.png.</p>
     </div>
 
     <div class="gallery-grid clean-gallery">
-      <img src="background.png" alt="Pole paintballowe" class="reveal gallery-item">
-      <img src="image3.png" alt="Gel Blaster na polu" class="reveal gallery-item">
-      <img src="image4.png" alt="Rozgrywka paintballowa" class="reveal gallery-item">
+      <img src="image1.png" alt="Paintball Żory - zdjęcie 1" class="reveal gallery-item">
+      <img src="image2.png" alt="Paintball Żory - zdjęcie 2" class="reveal gallery-item">
+      <img src="image3.png" alt="Paintball Żory - zdjęcie 3" class="reveal gallery-item">
+      <img src="image4.png" alt="Paintball Żory - zdjęcie 4" class="reveal gallery-item">
+      <img src="image5.png" alt="Paintball Żory - zdjęcie 5" class="reveal gallery-item">
+      <img src="image6.png" alt="Paintball Żory - zdjęcie 6" class="reveal gallery-item">
     </div>
 
     <div class="center reveal">
@@ -150,15 +154,15 @@
   <section class="cta">
     <div class="cta-inner reveal">
       <span>Rezerwacja</span>
-      <h2>Gotowy na grę?</h2>
+      <h2>Zbierz ekipę i zagraj.</h2>
       <p>
-        Zbierz ekipę, wybierz tryb i zarezerwuj termin. Paintball to dobra opcja
-        na urodziny, integrację albo aktywny weekend.
+        Zadzwoń, napisz maila albo odezwij się przez Facebooka. Podaj liczbę osób,
+        wiek uczestników i wybrany tryb gry.
       </p>
 
       <div class="hero-actions">
-        <a href="kontakt.html" class="btn btn-orange">Zarezerwuj termin</a>
-        <a href="cennik.html" class="btn btn-glass">Cennik</a>
+        <a href="tel:669970180" class="btn btn-orange">669 970 180</a>
+        <a href="kontakt.html" class="btn btn-glass">Kontakt</a>
       </div>
     </div>
   </section>
@@ -169,8 +173,8 @@
     <div>
       <img src="logo.png" alt="Paintball Żory" class="footer-logo">
       <p>
-        Paintball, Gel Blaster i .50 Cal — teren, adrenalina i dobra zabawa
-        dla dzieci, młodzieży oraz dorosłych.
+        Paintball Żory — Paintball, Gel Blaster i .50 Cal. Rozgrywki dla dzieci,
+        młodzieży, dorosłych, ekip znajomych i grup zorganizowanych.
       </p>
     </div>
 
@@ -184,16 +188,16 @@
     </div>
 
     <div>
-      <h3>Rezerwacja</h3>
-      <a href="kontakt.html">Zarezerwuj termin</a>
-      <a href="cennik.html">Sprawdź cennik</a>
-      <a href="kontakt.html">Dane kontaktowe</a>
+      <h3>Kontakt</h3>
+      <a href="tel:669970180">669 970 180</a>
+      <a href="mailto:otamix@poczta.onet.pl">otamix@poczta.onet.pl</a>
+      <a href="https://www.facebook.com/PaintballBorowka" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
 
   <div class="footer-bottom">
     <p>Paintball Żory © 2026</p>
-    <p>Paintball • Gel Blaster • .50 Cal</p>
+    <p>Kolejowa • Paintball • Gel Blaster • .50 Cal</p>
   </div>
 </footer>
 

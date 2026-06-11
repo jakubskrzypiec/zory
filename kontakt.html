@@ -15,11 +15,11 @@
 <body>
 
 <header class="site-header">
-  <a href="index.html" class="brand">
+  <a href="index.html" class="brand" aria-label="Paintball Żory - strona główna">
     <img src="logo.png" alt="Paintball Żory">
   </a>
 
-  <nav class="nav">
+  <nav class="nav" aria-label="Menu główne">
     <a href="index.html">Start</a>
     <a href="tryby.html">Tryby</a>
     <a href="pole.html">Pole gry</a>
@@ -28,39 +28,75 @@
     <a href="kontakt.html">Kontakt</a>
   </nav>
 
-  <a href="kontakt.html" class="nav-cta">Rezerwacja</a>
+  <a href="tel:669970180" class="nav-cta">Rezerwacja</a>
 </header>
 
 <main>
   <section class="sub-hero">
     <img src="hero.png" alt="Kontakt Paintball Żory">
-
     <div class="sub-hero-content reveal">
       <span class="badge">Kontakt</span>
       <h1>Zarezerwuj termin gry</h1>
-      <p>Podaj liczbę osób, wiek uczestników i wybrany tryb gry.</p>
+      <p>Zadzwoń, napisz maila albo wyślij wiadomość przez formularz.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="contact-grid">
-      <article class="contact-card reveal">
-        <span>Telefon</span>
-        <h2>Do uzupełnienia</h2>
-        <p>Wklej tutaj numer telefonu do rezerwacji.</p>
-      </article>
+  <section class="section contact-section">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <article class="contact-card reveal">
+          <span>Telefon</span>
+          <h2><a href="tel:669970180">669 970 180</a></h2>
+          <p>Najprostszy kontakt w sprawie terminu i liczby graczy.</p>
+        </article>
 
-      <article class="contact-card reveal">
-        <span>Lokalizacja</span>
-        <h2>Żory i okolice</h2>
-        <p>Dokładny adres i dojazd można dodać po potwierdzeniu danych.</p>
-      </article>
+        <article class="contact-card reveal">
+          <span>E-mail</span>
+          <h2><a href="mailto:otamix@poczta.onet.pl">otamix@poczta.onet.pl</a></h2>
+          <p>Możesz opisać liczbę osób, wiek uczestników i wybrany tryb.</p>
+        </article>
 
-      <article class="contact-card reveal">
-        <span>Rezerwacja</span>
-        <h2>Termin gry</h2>
-        <p>Najlepiej podać liczbę graczy, wiek uczestników i wybrany pakiet.</p>
-      </article>
+        <article class="contact-card reveal">
+          <span>Facebook</span>
+          <h2><a href="https://www.facebook.com/PaintballBorowka" target="_blank" rel="noopener">Paintball Żory</a></h2>
+          <p>Szybki kontakt przez profil na Facebooku.</p>
+        </article>
+      </div>
+
+      <div class="contact-form-box reveal">
+        <span class="badge">Formularz</span>
+        <h2>Napisz wiadomość</h2>
+        <p>Po wysłaniu otworzy się gotowy e-mail do Paintball Żory.</p>
+
+        <form id="contactForm" class="contact-form">
+          <label>
+            Imię
+            <input type="text" id="name" placeholder="Twoje imię" required>
+          </label>
+
+          <label>
+            Telefon
+            <input type="tel" id="phone" placeholder="Numer telefonu" required>
+          </label>
+
+          <label>
+            Tryb gry
+            <select id="mode">
+              <option>Gel Blaster</option>
+              <option>.50 Cal Paintball</option>
+              <option>Paintball klasyczny</option>
+              <option>Nie wiem, proszę doradzić</option>
+            </select>
+          </label>
+
+          <label>
+            Wiadomość
+            <textarea id="message" rows="5" placeholder="Np. liczba osób, termin, wiek uczestników..." required></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-orange">Wyślij zapytanie</button>
+        </form>
+      </div>
     </div>
   </section>
 </main>
@@ -70,8 +106,8 @@
     <div>
       <img src="logo.png" alt="Paintball Żory" class="footer-logo">
       <p>
-        Paintball, Gel Blaster i .50 Cal — teren, adrenalina i dobra zabawa
-        dla dzieci, młodzieży oraz dorosłych.
+        Paintball Żory — Paintball, Gel Blaster i .50 Cal. Rozgrywki dla dzieci,
+        młodzieży, dorosłych, ekip znajomych i grup zorganizowanych.
       </p>
     </div>
 
@@ -85,16 +121,16 @@
     </div>
 
     <div>
-      <h3>Rezerwacja</h3>
-      <a href="kontakt.html">Zarezerwuj termin</a>
-      <a href="cennik.html">Sprawdź cennik</a>
-      <a href="kontakt.html">Dane kontaktowe</a>
+      <h3>Kontakt</h3>
+      <a href="tel:669970180">669 970 180</a>
+      <a href="mailto:otamix@poczta.onet.pl">otamix@poczta.onet.pl</a>
+      <a href="https://www.facebook.com/PaintballBorowka" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
 
   <div class="footer-bottom">
     <p>Paintball Żory © 2026</p>
-    <p>Paintball • Gel Blaster • .50 Cal</p>
+    <p>Kolejowa • Paintball • Gel Blaster • .50 Cal</p>
   </div>
 </footer>
 
