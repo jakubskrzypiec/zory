@@ -834,3 +834,30 @@ img {
     border-radius: 0;
   }
 }
+/* FIX - loader ma zniknąć nawet jak JS się nie odpali */
+
+.page-loader {
+  animation: forceLoaderHide 0.7s ease 1.4s forwards !important;
+}
+
+@keyframes forceLoaderHide {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
+}
+
+/* FIX - pokazuje treść nawet jeśli animacje JS się wysypią */
+
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
