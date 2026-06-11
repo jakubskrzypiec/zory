@@ -23,11 +23,11 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     loader.classList.add("hidden");
-  }, 650);
+  }, 1050);
 
   setTimeout(() => {
     loader.remove();
-  }, 1300);
+  }, 1800);
 });
 
 const lightbox = document.getElementById("lightbox");
@@ -63,27 +63,6 @@ document.addEventListener("keydown", (event) => {
     lightbox.classList.remove("active");
   }
 });
-
-const fieldPopup = document.getElementById("fieldPopup");
-const fieldPopupTitle = document.getElementById("fieldPopupTitle");
-const fieldPopupText = document.getElementById("fieldPopupText");
-const fieldPopupClose = document.getElementById("fieldPopupClose");
-
-document.querySelectorAll(".field-point").forEach((point) => {
-  point.addEventListener("click", () => {
-    if (!fieldPopup || !fieldPopupTitle || !fieldPopupText) return;
-
-    fieldPopupTitle.textContent = point.dataset.title;
-    fieldPopupText.textContent = point.dataset.text;
-    fieldPopup.classList.add("active");
-  });
-});
-
-if (fieldPopupClose) {
-  fieldPopupClose.addEventListener("click", () => {
-    fieldPopup.classList.remove("active");
-  });
-}
 
 const contactForm = document.getElementById("contactForm");
 
