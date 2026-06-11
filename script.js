@@ -1,219 +1,80 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+const revealElements = document.querySelectorAll(".reveal");
 
-  <title>Paintball Żory | Paintball, Gel Blaster i .50 Cal</title>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.14 });
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+revealElements.forEach((element) => observer.observe(element));
 
-  <link rel="stylesheet" href="style.css">
-</head>
+window.addEventListener("load", () => {
+  const loader = document.getElementById("pageLoader");
 
-<body>
+  if (!loader) return;
 
-<div class="page-loader" id="pageLoader">
-  <div class="loader-bg"></div>
-  <div class="loader-content">
-    <img src="logo.png" alt="Paintball Żory">
-    <span>Paintball • Gel Blaster • .50 Cal</span>
-  </div>
-</div>
+  setTimeout(() => {
+    loader.classList.add("hidden");
+  }, 850);
 
-<header class="site-header">
-  <a href="index.html" class="brand">
-    <img src="logo.png" alt="Paintball Żory">
-  </a>
+  setTimeout(() => {
+    loader.remove();
+  }, 1600);
+});
 
-  <nav class="nav">
-    <a href="index.html">Start</a>
-    <a href="tryby.html">Tryby</a>
-    <a href="pole.html">Pole gry</a>
-    <a href="cennik.html">Cennik</a>
-    <a href="galeria.html">Galeria</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
 
-  <a href="kontakt.html" class="nav-cta">Rezerwacja</a>
-</header>
+document.querySelectorAll(".gallery-item").forEach((image) => {
+  image.addEventListener("click", () => {
+    if (!lightbox || !lightboxImage) return;
 
-<main>
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    lightbox.classList.add("active");
+  });
+});
 
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
+if (lightboxClose) {
+  lightboxClose.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+}
 
-    <div class="hero-content reveal">
-      <span class="badge">Paintball • Gel Blaster • .50 Cal</span>
+if (lightbox) {
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      lightbox.classList.remove("active");
+    }
+  });
+}
 
-      <img src="logo.png" alt="Paintball Żory" class="hero-logo">
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && lightbox) {
+    lightbox.classList.remove("active");
+  }
+});
 
-      <p>
-        Dynamiczne rozgrywki dla dzieci, młodzieży i dorosłych. Wybierz tryb gry,
-        zbierz ekipę i wejdź na pole.
-      </p>
+const fieldPopup = document.getElementById("fieldPopup");
+const fieldPopupTitle = document.getElementById("fieldPopupTitle");
+const fieldPopupText = document.getElementById("fieldPopupText");
+const fieldPopupClose = document.getElementById("fieldPopupClose");
 
-      <div class="hero-actions">
-        <a href="kontakt.html" class="btn btn-orange">Zarezerwuj termin</a>
-        <a href="cennik.html" class="btn btn-glass">Zobacz cennik</a>
-      </div>
-    </div>
-  </section>
+document.querySelectorAll(".field-point").forEach((point) => {
+  point.addEventListener("click", () => {
+    if (!fieldPopup || !fieldPopupTitle || !fieldPopupText) return;
 
-  <section class="info-strip reveal">
-    <article>
-      <strong>Dla ekip</strong>
-      <span>znajomi, urodziny i integracje</span>
-    </article>
+    fieldPopupTitle.textContent = point.dataset.title;
+    fieldPopupText.textContent = point.dataset.text;
+    fieldPopup.classList.add("active");
+  });
+});
 
-    <article>
-      <strong>Dla dzieci</strong>
-      <span>Gel Blaster i lżejsze scenariusze</span>
-    </article>
-
-    <article>
-      <strong>Po grze</strong>
-      <span>ognisko, chill i podsumowanie akcji</span>
-    </article>
-  </section>
-
-  <section class="section">
-    <div class="section-title reveal">
-      <span>Tryby gry</span>
-      <h2>Wybierz klimat rozgrywki</h2>
-      <p>
-        Od lekkiej zabawy dla dzieci po klasyczny paintball dla ekip szukających większej adrenaliny.
-      </p>
-    </div>
-
-    <div class="mode-mini-grid">
-      <article class="mode-mini reveal">
-        <span>01</span>
-        <h3>Gel Blaster</h3>
-        <p>
-          Lekkie kulki żelowe, szybka zabawa i świetny wybór dla młodszych graczy.
-        </p>
-      </article>
-
-      <article class="mode-mini reveal">
-        <span>02</span>
-        <h3>Paintball .50 Cal</h3>
-        <p>
-          Mniejszy kaliber, mniejszy ból i bardzo dobra opcja dla rodzin oraz młodzieży.
-        </p>
-      </article>
-
-      <article class="mode-mini reveal">
-        <span>03</span>
-        <h3>Paintball klasyczny</h3>
-        <p>
-          Mocniejszy klimat, taktyka i dynamiczna gra dla dorosłych ekip.
-        </p>
-      </article>
-    </div>
-
-    <div class="center reveal">
-      <a href="tryby.html" class="btn btn-orange">Zobacz tryby gry</a>
-    </div>
-  </section>
-
-  <section class="section field-preview">
-    <div class="field-text reveal">
-      <span class="badge">Pole gry</span>
-      <h2>Prawdziwy teren, przeszkody i dużo miejsca do akcji.</h2>
-      <p>
-        Pole składa się z osłon, beczek, barykad i naturalnego terenu.
-        Mapę interaktywną dopracujemy osobno, a na stronie zostaje realny podgląd pola.
-      </p>
-
-      <a href="pole.html" class="btn btn-orange">Zobacz pole gry</a>
-    </div>
-
-    <div class="field-image reveal">
-      <img src="background.png" alt="Pole paintballowe">
-    </div>
-  </section>
-
-  <section class="section gallery-preview">
-    <div class="section-title reveal">
-      <span>Galeria</span>
-      <h2>Klimat rozgrywek</h2>
-      <p>
-        Wybrane zdjęcia z terenu i zabawy — bez zdjęć sportowych, które nie pasują do klimatu strony.
-      </p>
-    </div>
-
-    <div class="gallery-grid clean-gallery">
-      <img src="image3.png" alt="Gel Blaster na polu" class="reveal gallery-item">
-      <img src="team1.png" alt="Grupa dzieci z Gel Blaster" class="reveal gallery-item">
-      <img src="team2.png" alt="Instruktaż na polu" class="reveal gallery-item">
-      <img src="image4.png" alt="Zabawa paintballowa" class="reveal gallery-item">
-    </div>
-
-    <div class="center reveal">
-      <a href="galeria.html" class="btn btn-glass dark">Zobacz galerię</a>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="cta-inner reveal">
-      <span>Rezerwacja</span>
-      <h2>Gotowy na grę?</h2>
-      <p>
-        Zbierz ekipę, wybierz tryb i zarezerwuj termin. Paintball to dobra opcja
-        na urodziny, integrację albo aktywny weekend.
-      </p>
-
-      <div class="hero-actions">
-        <a href="kontakt.html" class="btn btn-orange">Zarezerwuj termin</a>
-        <a href="cennik.html" class="btn btn-glass">Cennik</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-grid">
-    <div>
-      <img src="logo.png" alt="Paintball Żory" class="footer-logo">
-      <p>
-        Paintball, Gel Blaster i .50 Cal — teren, adrenalina i dobra zabawa
-        dla dzieci, młodzieży oraz dorosłych.
-      </p>
-    </div>
-
-    <div>
-      <h3>Menu</h3>
-      <a href="tryby.html">Tryby gry</a>
-      <a href="pole.html">Pole gry</a>
-      <a href="cennik.html">Cennik</a>
-      <a href="galeria.html">Galeria</a>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
-
-    <div>
-      <h3>Rezerwacja</h3>
-      <a href="kontakt.html">Zarezerwuj termin</a>
-      <a href="cennik.html">Sprawdź cennik</a>
-      <a href="kontakt.html">Dane kontaktowe</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>Paintball Żory © 2026</p>
-    <p>Paintball • Gel Blaster • .50 Cal</p>
-  </div>
-</footer>
-
-<div class="lightbox" id="lightbox">
-  <button id="lightboxClose" aria-label="Zamknij">×</button>
-  <img id="lightboxImage" src="" alt="">
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+if (fieldPopupClose) {
+  fieldPopupClose.addEventListener("click", () => {
+    fieldPopup.classList.remove("active");
+  });
+}

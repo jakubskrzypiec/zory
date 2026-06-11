@@ -38,7 +38,7 @@ img {
 .reveal {
   opacity: 0;
   transform: translateY(32px);
-  transition: .75s ease;
+  transition: 0.75s ease;
 }
 
 .reveal.visible {
@@ -46,7 +46,7 @@ img {
   transform: translateY(0);
 }
 
-/* LOADER */
+/* LOADER - TYLKO INDEX */
 
 .page-loader {
   position: fixed;
@@ -56,13 +56,14 @@ img {
   display: grid;
   place-items: center;
   overflow: hidden;
+  animation: forceLoaderHide 0.7s ease 1.4s forwards;
 }
 
 .loader-bg {
   position: absolute;
   inset: -30px;
   background:
-    linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.88)),
+    linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.88)),
     url("hero.png") center/cover no-repeat;
   filter: blur(12px);
   transform: scale(1.12);
@@ -76,38 +77,50 @@ img {
   gap: 16px;
   padding: 34px 42px;
   border-radius: 34px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
   backdrop-filter: blur(18px);
   animation: loaderIn 1.2s ease forwards;
 }
 
 .loader-content img {
   width: min(300px, 70vw);
-  filter: drop-shadow(0 0 26px rgba(255,122,26,.38));
+  filter: drop-shadow(0 0 26px rgba(255,122,26,0.38));
 }
 
 .loader-content span {
   color: var(--orange);
   font-size: 12px;
   font-weight: 900;
-  letter-spacing: .16em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   text-align: center;
 }
 
 .page-loader.hidden {
-  animation: loaderOut .65s ease forwards;
+  animation: forceLoaderHide 0.55s ease forwards;
   pointer-events: none;
 }
 
 @keyframes loaderIn {
-  from { opacity: 0; transform: scale(.94); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-@keyframes loaderOut {
-  to { opacity: 0; transform: translateY(-100%); }
+@keyframes forceLoaderHide {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
 }
 
 /* HEADER */
@@ -120,7 +133,7 @@ img {
   width: min(1220px, calc(100% - 34px));
   min-height: 74px;
   padding: 12px 18px;
-  background: rgba(13,13,13,.82);
+  background: rgba(13,13,13,0.82);
   border: 1px solid var(--line);
   border-radius: 999px;
   display: grid;
@@ -129,7 +142,7 @@ img {
   gap: 22px;
   z-index: 100;
   backdrop-filter: blur(18px);
-  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
 }
 
 .brand img {
@@ -145,17 +158,17 @@ img {
 }
 
 .nav a {
-  color: rgba(255,255,255,.68);
+  color: rgba(255,255,255,0.68);
   padding: 12px 15px;
   border-radius: 999px;
   font-size: 14px;
   font-weight: 900;
-  transition: .25s ease;
+  transition: 0.25s ease;
 }
 
 .nav a:hover {
   color: #fff;
-  background: rgba(255,255,255,.08);
+  background: rgba(255,255,255,0.08);
 }
 
 .nav-cta {
@@ -200,8 +213,8 @@ img {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 34%, rgba(255,122,26,.22), transparent 24%),
-    linear-gradient(180deg, rgba(0,0,0,.62), rgba(0,0,0,.78) 52%, #050505 100%);
+    radial-gradient(circle at 50% 34%, rgba(255,122,26,0.22), transparent 24%),
+    linear-gradient(180deg, rgba(0,0,0,0.62), rgba(0,0,0,0.78) 52%, #050505 100%);
   z-index: -2;
 }
 
@@ -216,12 +229,12 @@ img {
   width: fit-content;
   padding: 10px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(255,122,26,.45);
-  background: rgba(255,122,26,.12);
+  border: 1px solid rgba(255,122,26,0.45);
+  background: rgba(255,122,26,0.12);
   color: var(--orange);
   font-size: 12px;
   font-weight: 950;
-  letter-spacing: .14em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 24px;
 }
@@ -230,8 +243,8 @@ img {
   width: min(420px, 80vw);
   margin: 10px 0 24px;
   filter:
-    drop-shadow(0 0 18px rgba(255,122,26,.42))
-    drop-shadow(0 30px 70px rgba(0,0,0,.72));
+    drop-shadow(0 0 18px rgba(255,122,26,0.42))
+    drop-shadow(0 30px 70px rgba(0,0,0,0.72));
   animation: logoFloat 3.4s ease-in-out infinite;
 }
 
@@ -242,7 +255,7 @@ img {
 
 .hero p {
   max-width: 720px;
-  color: rgba(255,255,255,.76);
+  color: rgba(255,255,255,0.76);
   font-size: 20px;
   line-height: 1.75;
 }
@@ -255,6 +268,8 @@ img {
   flex-wrap: wrap;
 }
 
+/* BUTTONS */
+
 .btn {
   min-height: 56px;
   padding: 0 26px;
@@ -263,7 +278,7 @@ img {
   align-items: center;
   justify-content: center;
   font-weight: 950;
-  transition: .25s ease;
+  transition: 0.25s ease;
 }
 
 .btn:hover {
@@ -273,13 +288,13 @@ img {
 .btn-orange {
   color: #111;
   background: linear-gradient(135deg, var(--orange), var(--orange2));
-  box-shadow: 0 18px 44px rgba(255,122,26,.22);
+  box-shadow: 0 18px 44px rgba(255,122,26,0.22);
 }
 
 .btn-glass {
   color: #fff;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
 }
 
 .btn-glass.dark {
@@ -339,7 +354,7 @@ img {
 .sub-hero h1 {
   font-family: "Black Ops One", system-ui;
   font-size: clamp(38px, 6vw, 76px);
-  line-height: .95;
+  line-height: 0.95;
   letter-spacing: -1px;
 }
 
@@ -353,50 +368,47 @@ img {
   line-height: 1.75;
 }
 
-/* MODES */
+/* CARDS */
 
 .mode-mini-grid,
 .mode-detail-grid,
-.price-grid,
 .contact-grid {
   display: grid;
   gap: 22px;
 }
 
-.mode-mini-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.mode-detail-grid {
+.mode-mini-grid,
+.mode-detail-grid,
+.contact-grid {
   grid-template-columns: repeat(3, 1fr);
 }
 
 .mode-mini,
 .mode-detail,
-.price-card,
-.contact-card {
-  background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+.contact-card,
+.price-block {
+  background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));
   border: 1px solid var(--line);
   border-radius: 30px;
   padding: 34px;
-  box-shadow: 0 22px 70px rgba(0,0,0,.22);
+  box-shadow: 0 22px 70px rgba(0,0,0,0.22);
 }
 
 .mode-mini span,
 .mode-detail span,
-.price-card span,
-.contact-card span {
+.contact-card span,
+.price-block span {
   color: var(--orange);
   font-weight: 950;
   text-transform: uppercase;
-  letter-spacing: .12em;
+  letter-spacing: 0.12em;
   font-size: 12px;
 }
 
 .mode-mini h3,
 .mode-detail h2,
-.price-card h2,
-.contact-card h2 {
+.contact-card h2,
+.price-block h2 {
   font-family: "Black Ops One", system-ui;
   margin: 18px 0 14px;
 }
@@ -407,8 +419,8 @@ img {
 
 .mode-mini p,
 .mode-detail p,
-.price-card p,
-.contact-card p {
+.contact-card p,
+.price-block p {
   color: var(--text);
   line-height: 1.75;
 }
@@ -424,10 +436,10 @@ img {
 
 .field-preview {
   display: grid;
-  grid-template-columns: .9fr 1.1fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 48px;
   align-items: center;
-  background: radial-gradient(circle at 70% 30%, rgba(255,122,26,.10), transparent 30%), #080808;
+  background: radial-gradient(circle at 70% 30%, rgba(255,122,26,0.10), transparent 30%), #080808;
 }
 
 .field-image img,
@@ -451,7 +463,7 @@ img {
   border: 4px solid #fff;
   background: var(--orange);
   cursor: pointer;
-  box-shadow: 0 0 0 0 rgba(255,122,26,.7);
+  box-shadow: 0 0 0 0 rgba(255,122,26,0.7);
   animation: pointPulse 2s infinite;
 }
 
@@ -503,12 +515,8 @@ img {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.gallery-page {
   grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
 .gallery-grid img {
@@ -518,46 +526,53 @@ img {
   border-radius: 28px;
   border: 1px solid var(--line);
   cursor: zoom-in;
-  transition: .25s ease;
+  transition: 0.25s ease;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.025);
 }
 
-/* PRICES / CONTACT */
+/* CENNIK */
 
-.price-grid {
-  grid-template-columns: repeat(5, 1fr);
+.price-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
 }
 
-.price-card h2 {
-  font-size: 44px;
+.price-block h2 {
   color: #fff;
+  font-size: 26px;
 }
 
-.price-card.featured {
-  border-color: rgba(255,122,26,.65);
-  box-shadow: 0 0 0 1px rgba(255,122,26,.18), 0 30px 90px rgba(255,122,26,.12);
+.price-block.featured {
+  border-color: rgba(255,122,26,0.65);
+  box-shadow:
+    0 0 0 1px rgba(255,122,26,0.18),
+    0 30px 90px rgba(255,122,26,0.12);
 }
 
-.price-note,
-.contact-warning {
-  margin-top: 26px;
-  padding: 26px;
-  border-radius: 24px;
-  border: 1px solid rgba(255,122,26,.38);
-  background: rgba(255,122,26,.08);
-  color: var(--text);
+.price-block.fire {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,122,26,0.18), transparent 44%),
+    linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));
 }
 
-.price-note h3 {
+.price-row {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--line);
+}
+
+.price-row strong {
+  display: block;
+  font-family: "Black Ops One", system-ui;
+  font-size: 34px;
   color: #fff;
-  margin-bottom: 8px;
-}
-
-.contact-grid {
-  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 6px;
 }
 
 /* CTA */
@@ -574,8 +589,8 @@ img {
   padding: 64px 42px;
   border-radius: 40px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(255,122,26,.18), transparent 35%),
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+    radial-gradient(circle at 50% 0%, rgba(255,122,26,0.18), transparent 35%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
   border: 1px solid var(--line);
 }
 
@@ -596,7 +611,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(.42);
+  filter: brightness(0.42);
   z-index: -2;
 }
 
@@ -604,7 +619,7 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.36));
+  background: linear-gradient(90deg, rgba(0,0,0,0.82), rgba(0,0,0,0.36));
   z-index: -1;
 }
 
@@ -622,7 +637,7 @@ img {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr .7fr .8fr;
+  grid-template-columns: 1.4fr 0.7fr 0.8fr;
   gap: 60px;
 }
 
@@ -643,10 +658,10 @@ img {
 
 .footer a {
   display: block;
-  color: rgba(255,255,255,.66);
+  color: rgba(255,255,255,0.66);
   margin: 12px 0;
   font-weight: 850;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
 .footer a:hover {
@@ -667,7 +682,7 @@ img {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.88);
+  background: rgba(0,0,0,0.88);
   z-index: 300;
   display: none;
   align-items: center;
@@ -727,7 +742,7 @@ img {
 
   .nav a {
     text-align: center;
-    background: rgba(255,255,255,.055);
+    background: rgba(255,255,255,0.055);
   }
 
   .nav-cta {
@@ -744,8 +759,7 @@ img {
   .mode-detail-grid,
   .field-preview,
   .gallery-grid,
-  .gallery-page,
-  .price-grid,
+  .price-layout,
   .contact-grid,
   .footer-grid {
     grid-template-columns: 1fr;
@@ -814,10 +828,14 @@ img {
 
   .mode-mini,
   .mode-detail,
-  .price-card,
+  .price-block,
   .contact-card {
     padding: 26px 22px;
     border-radius: 24px;
+  }
+
+  .price-row strong {
+    font-size: 30px;
   }
 
   .sub-hero {
@@ -833,31 +851,4 @@ img {
   .real-field img {
     border-radius: 0;
   }
-}
-/* FIX - loader ma zniknąć nawet jak JS się nie odpali */
-
-.page-loader {
-  animation: forceLoaderHide 0.7s ease 1.4s forwards !important;
-}
-
-@keyframes forceLoaderHide {
-  0% {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(-100%);
-  }
-}
-
-/* FIX - pokazuje treść nawet jeśli animacje JS się wysypią */
-
-.reveal {
-  opacity: 1 !important;
-  transform: none !important;
 }
